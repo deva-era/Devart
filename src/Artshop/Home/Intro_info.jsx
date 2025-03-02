@@ -48,7 +48,7 @@ function Intro_info({ data }) {
         <div className="border h-fit w-full">
           <img
             className="object-contain w-full px-10 py-10 "
-            src="./public/artshop/elements/Pencil1.PNG"
+            src="./artshop/elements/Pencil1.PNG"
             alt=""
           />
         </div>
@@ -79,7 +79,7 @@ function Intro_info({ data }) {
         <div className="border h-fit order-0 max-sm:order-1 max-sm:mt-9">
           <img
             className="object-contain "
-            src="./public/artshop/elements/homecrayons.png"
+            src="./artshop/elements/homecrayons.png"
             alt=""
           />
         </div>
@@ -114,7 +114,7 @@ function Intro_info({ data }) {
         <div className="border w-full h-fit ">
           <img
             className="object-contain "
-            src="./public/artshop/elements/photoshop.jpg"
+            src="./artshop/elements/photoshop.jpg"
             alt=""
           />
         </div>
