@@ -11,6 +11,7 @@
 }
 :root{
     --main-color: cyan;
+    -webkit-margin-bottom-collapse: collapse;
 }
 
 .fredericka-the-great-regular {
