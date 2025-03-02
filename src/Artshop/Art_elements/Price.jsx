@@ -16,7 +16,7 @@ function Price({ handlePriceClick }) {
           className="max-md:mt-4 mx-auto bg-white rounded-xl w-fit shadow-2xl shadow-teal-400/50"
         >
           <img
-            src="public\artshop\pricecard\price1.jpg"
+            src="./artshop/pricecard/price1.jpg"
             className="object-contain w-full h-full p-1 rounded-xl"
             alt="Price details"
           />
