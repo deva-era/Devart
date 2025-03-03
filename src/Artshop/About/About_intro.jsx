@@ -93,8 +93,8 @@ function About_intro() {
         <img
           className="object-contain"
           style={{ height: 380, width: 575 }}
-          src="/artshop/about/test2.png"
-          alt=""
+          src="./artshop/about/test2.png"
+          alt="profile"
         />
       </div>
     </section>

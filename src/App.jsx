@@ -20,10 +20,7 @@ function App() {
         </HashRouter>
       </div>
     </>
-    // <>
-    //  <Navbar/>
-    //  <Art_section/>
-    // </>
+
   );
 }
 
