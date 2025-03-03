@@ -109,7 +109,7 @@ function Art_section() {
         </span>
 
         <img
-          src={`./artshop/card images${
+          src={`/artshop/card images${
             open_img.type == "hor" ? "/horizan" : ""
           }/${open_img.img}.jpg `}
           className="object-contain w-5/12 h-5/6 mx-auto transition-transform duration-300"

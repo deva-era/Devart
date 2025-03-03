@@ -8,20 +8,21 @@ function Intro_info({ data }) {
     { id: 2, no: 10, name: "Years" },
   ]);
 
-   const [crayons_data, set_crayons_data] = useState([
-     { id: 1, no: 25, name: "Projects" },
-     { id: 2, no: 3, name: "Years" },
-   ]);
+  const [crayons_data, set_crayons_data] = useState([
+    { id: 1, no: 25, name: "Projects" },
+    { id: 2, no: 3, name: "Years" },
+  ]);
 
-    const [ps_data, set_ps_data] = useState([
-      { id: 1, no: 10, name: "Projects" },
-      { id: 2, no: 3, name: "Years" },
-    ]);
+  const [ps_data, set_ps_data] = useState([
+    { id: 1, no: 10, name: "Projects" },
+    { id: 2, no: 3, name: "Years" },
+  ]);
 
   return (
     <section className="flex flex-col gap-40 max-sm:gap-10">
+
+      {/* pencil */}
       <div
-        // style={{ height: 373.66 }}
         className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-4 max-md:h-auto  max-xl:home_section_height "
       >
         <div className="max-md:flex max-md:flex-col">
@@ -38,7 +39,7 @@ function Intro_info({ data }) {
             passion, and the timeless elegance of pencil work. Explore, get
             inspired, and witness the magic of art in its purest form.
           </p>
-          <div className="grid grid-cols-3  lg:-space-x-20 max-lg:grid-cols-1">
+          <div className="grid grid-cols-3  lg:-space-x-20">
             {pencil_data.map((data) => {
               return <Experience key={data.id} card={data} />;
             })}
@@ -48,7 +49,7 @@ function Intro_info({ data }) {
         <div className="border h-fit w-full">
           <img
             className="object-contain w-full px-10 py-10 "
-            src="./artshop/elements/Pencil1.PNG"
+            src="/artshop/elements/Pencil1.png"
             alt=""
           />
         </div>
@@ -70,16 +71,16 @@ function Intro_info({ data }) {
             world where colors speak louder than words—explore, create, and get
             inspired!
           </p>
-          <div className="grid grid-cols-3  lg:-space-x-20 max-lg:grid-cols-1">
+          <div className="grid grid-cols-3  lg:-space-x-20">
             {crayons_data.map((data) => {
               return <Experience key={data.id} card={data} />;
             })}
-          </div>
+          </div>/
         </div>
         <div className="border h-fit order-0 max-sm:order-1 max-sm:mt-9">
           <img
             className="object-contain "
-            src="./artshop/elements/homecrayons.png"
+            src="/artshop/elements/homecrayons.png"
             alt=""
           />
         </div>
@@ -105,7 +106,7 @@ function Intro_info({ data }) {
             a realm where the impossible becomes possible—explore, create, and
             be inspired!
           </p>
-          <div className="grid grid-cols-3  lg:-space-x-20 max-lg:grid-cols-1">
+          <div className="grid grid-cols-3  lg:-space-x-20 ">
             {ps_data.map((data) => {
               return <Experience key={data.id} card={data} />;
             })}
@@ -114,7 +115,7 @@ function Intro_info({ data }) {
         <div className="border w-full h-fit ">
           <img
             className="object-contain "
-            src="./artshop/elements/photoshop.jpg"
+            src="/artshop/elements/photoshop.jpg"
             alt=""
           />
         </div>
