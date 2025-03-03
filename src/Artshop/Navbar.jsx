@@ -12,7 +12,7 @@ function Navbar() {
       <nav className="max-md:flex-col  flex justify-between items-center bg-transparent backdrop-blur-sm">
         <div className="max-md:flex max-md:justify-between max-md:w-11/12 max-md:mx-auto ">
           <div className="">
-            <img src="/artshop/artlogo.png" alt="logo" className="h-20 " />
+            <img src="./artshop/artlogo.png" alt="logo" className="h-20 " />
           </div>
           <button className="md:hidden hover:text-cyan-500" onClick={update}>
             <svg
