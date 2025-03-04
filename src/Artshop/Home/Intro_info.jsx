@@ -71,7 +71,7 @@ function Intro_info({ data }) {
             world where colors speak louder than words—explore, create, and get
             inspired!
           </p>
-          <div className="grid grid-cols-3  lg:-space-x-20">
+          <div className="grid grid-cols-3 lg:-space-x-10">
             {crayons_data.map((data) => {
               return <Experience key={data.id} card={data} />;
             })}

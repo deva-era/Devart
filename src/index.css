@@ -11,7 +11,10 @@
 }
 :root{
     --main-color: cyan;
-    -webkit-margin-bottom-collapse: collapse;
+    /* card */
+    --card-width:345px;
+    --image-height:350px;
+    /*  */
 }
 
 .fredericka-the-great-regular {
@@ -25,7 +28,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-image: url(/public/artshop/mine.jpg) ;
+    background-image: url(./artshop/mine.jpg) ;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -57,6 +60,25 @@ body{
 /* home end */
 
 /*art section  */
+
+/* card */
+@media screen {
+  .card_width {
+    width:var(--card-width) ;
+  }
+   .card_image_height{
+    height:var(--image-height);
+  }
+}
+@media (max-width: 598px) {
+  .card_width {
+    width:calc(var(--card-width)/1.5) ;
+  }
+   .card_image_height{
+    height:calc(var(--image-height)/1.5);
+  }
+}
+
 .button_setup{
 
     @apply text-base text-white px-3 py-1 font-cinzel text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-yellow-500 to-65% border

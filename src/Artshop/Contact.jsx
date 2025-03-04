@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Footer_resuse from './Footer_resuse';
 function Contact() {
   return (
     <>
@@ -78,6 +78,7 @@ function Contact() {
           </div>
         </div>
       </form>
+      <Footer_resuse/>
     </>
   );
 }

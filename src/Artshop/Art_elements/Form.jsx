@@ -110,6 +110,20 @@ function Form({ handleOrderClick }) {
                 required
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="phone">Image:</label>
+              <input
+                type="file"
+                id="file"
+                className="cursor-pointer border-none "
+                name="file"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <small className="text-slate-400">* Upload image in PDF format</small>
+            </div>
           </div>
 
           <button id="submitbutton" className="mt-2" type="submit">

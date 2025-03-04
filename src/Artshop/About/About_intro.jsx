@@ -79,12 +79,7 @@ function About_intro() {
 
         <div>
           <button className=" button_setup">
-            <a
-              href="https://docs.google.com/document/d/1le8G_W3MVJV8MpD0xbK1RndpjGC-ZEWg29vZ-IVeEas/export?format=pdf"
-              download="Resume.pdf"
-            >
-              Download CV
-            </a>
+            <a href="https://deva-era.github.io/Portfolio/">More Info</a>
           </button>
         </div>
       </div>
