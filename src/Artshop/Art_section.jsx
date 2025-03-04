@@ -230,7 +230,7 @@ function Art_section() {
         </span>
 
         <img
-          src={`/artshop/card images/${open_img.type}/${open_img.img}.jpg `}
+          src={`./artshop/card images/${open_img.type}/${open_img.img}.jpg `}
           className="object-contain w-5/12 h-5/6 mx-auto transition-transform duration-300 mt-20"
           style={{ transform: `scale(${scale})` }}
           alt="closed"

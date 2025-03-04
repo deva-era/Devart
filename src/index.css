@@ -28,7 +28,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-image: url(./artshop/mine.jpg) ;
+    background-image: url(/public/artshop/mine.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
