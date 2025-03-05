@@ -2,6 +2,25 @@ import React from "react";
 import { useState } from "react";
 
 function Form({ handleOrderClick }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({ name: "", email: "", password: "" });
+    handleOrderClick(false);
+  };
+
+  // person count
   const [person, set_person] = useState(1);
 
   function plus() {
@@ -19,6 +38,7 @@ function Form({ handleOrderClick }) {
       return "  Minimum should be 1 person !!!";
     }
   }
+  // count end
 
   return (
     <div>
@@ -38,7 +58,7 @@ function Form({ handleOrderClick }) {
 
         {/* form */}
 
-        <form id="form1" className="form-container p-5">
+        <form id="form1" onSubmit={handleSubmit} className="form-container p-5">
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="firstName">Name:</label>
@@ -46,6 +66,7 @@ function Form({ handleOrderClick }) {
                 type="text"
                 id="firstName"
                 name="firstName"
+                onSubmit={handleSubmit}
                 placeholder="Enter name"
                 required
               />
@@ -56,6 +77,7 @@ function Form({ handleOrderClick }) {
                 type="text"
                 id="lastName"
                 name="lastName"
+                onSubmit={handleSubmit}
                 placeholder="Enter Email"
                 required
               />
@@ -64,23 +86,25 @@ function Form({ handleOrderClick }) {
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="email">Phone.no:</label>
+              <label htmlFor="phone">Phone.no:</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
-                placeholder="123-456-7890"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                onSubmit={handleSubmit}
+                placeholder="Ex.938868XXXX"
+                pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
                 inputmode="numeric"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Address:</label>
+              <label htmlFor="address">Address:</label>
               <input
                 type="text"
                 id="address"
                 name="address"
+                onSubmit={handleSubmit}
                 placeholder="Enter Address"
                 required
               />
@@ -122,7 +146,9 @@ function Form({ handleOrderClick }) {
             </div>
 
             <div className="form-group">
-              <small className="text-slate-400">* Upload image in PDF format</small>
+              <small className="text-slate-400">
+                * Upload image in PDF format
+              </small>
             </div>
           </div>
 

@@ -32,6 +32,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     /* filter: blur(8px); */
     color: white;
 }
@@ -100,7 +101,10 @@ body{
   margin: auto;
   margin-top: -12px;
   background: transparent;
+  /* overflow-y: auto; */
+   /* height: 60vh; */
 }
+
 
 /* Grid layout for 2-column form */
 .form-row {
@@ -175,11 +179,17 @@ body{
    .person{
     width:70%;
   }
+    .form-container {
+  overflow-y: auto;
+   height: 60vh;
+}
+
 }
 @media (max-width: 898px) {
   .person{
     width:45%;
   }
+
 }
 
 /* end */

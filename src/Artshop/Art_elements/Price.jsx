@@ -1,19 +1,22 @@
 import React from "react";
 
-function Price({ handlePriceClick }) {
+function Price({ handlePriceClick, scrollchange }) {
   return (
     <section>
       <div className="">
         <span
-          class=" text-4xl flex justify-end mr-52 mt-4 cursor-pointer max-md:relative max-md:left-24"
-          onClick={() => handlePriceClick(false)}
+          class=" text-4xl right-8 top-2 cursor-pointer absolute"
+          onClick={() => {
+            handlePriceClick(false);
+            scrollchange();
+          }}
         >
           &times;
         </span>
 
         <div
           style={{ height: 550 }}
-          className="max-md:mt-4 mx-auto bg-white rounded-xl w-fit shadow-2xl shadow-teal-400/50"
+          className="mt-14 mx-auto bg-white rounded-xl w-fit shadow-2xl shadow-teal-400/50"
         >
           <img
             src="./artshop/pricecard/price1.jpg"

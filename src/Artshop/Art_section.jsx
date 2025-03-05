@@ -11,27 +11,27 @@ function Art_section() {
   const [portrait_img, set_portrait_img] = useState([
     {
       id: 1,
-      title: "Fruit Shop",
+      title: "portrait",
       img: "0",
       price: 1999,
       type: "portrait",
-      path: "./artshop/card images/",
+      offer: 50,
     },
     {
       id: 2,
-      title: "To-do List",
+      title: "portrait",
       img: "1",
       price: 1499,
       type: "portrait",
-      path: "./artshop/card images/",
+      offer: 10,
     },
     {
       id: 3,
-      title: "Bus simulation System",
+      title: "portrait",
       img: "2",
       price: 2499,
       type: "portrait",
-      path: "./artshop/card images/",
+      offer: 30,
     },
   ]);
 
@@ -39,24 +39,27 @@ function Art_section() {
   const [landscape_img, set_landscape_img] = useState([
     {
       id: 1,
-      title: "Fruit Shop",
+      title: "landscape",
       img: "1",
       price: 2999,
       type: "landscape",
+      offer: 5,
     },
     {
       id: 2,
-      title: "To-do List",
+      title: "landscape",
       img: "2",
       price: 1999,
       type: "landscape",
+      offer: 20,
     },
     {
       id: 3,
-      title: "Bus simulation System",
+      title: "landscape",
       img: "3",
       price: 2499,
       type: "landscape",
+      offer: 45,
     },
   ]);
 
@@ -68,6 +71,7 @@ function Art_section() {
       img: "sun and moon island",
       price: 549,
       type: "crayons",
+      offer: 3,
     },
     {
       id: 2,
@@ -75,6 +79,7 @@ function Art_section() {
       img: "couple with umberlla",
       price: 599,
       type: "crayons",
+      offer: 5,
     },
     {
       id: 3,
@@ -82,6 +87,7 @@ function Art_section() {
       img: "flying island",
       price: 549,
       type: "crayons",
+      offer: 15,
     },
     {
       id: 4,
@@ -89,6 +95,7 @@ function Art_section() {
       img: "seasons",
       price: 549,
       type: "crayons",
+      offer: 4,
     },
     {
       id: 5,
@@ -96,6 +103,7 @@ function Art_section() {
       img: "sitting on sky night",
       price: 549,
       type: "crayons",
+      offer: 10,
     },
     {
       id: 6,
@@ -103,70 +111,77 @@ function Art_section() {
       img: "deer couple",
       price: 549,
       type: "crayons",
+      offer: 2,
     },
   ]);
 
-    const [ps_img, set_ps_img] = useState([
-      {
-        id: 1,
-        title: "crayons",
-        img: "Avatar",
-        price: 549,
-        type: "ps",
-      },
-      {
-        id: 2,
-        title: "crayons",
-        img: "valhalla",
-        price: 599,
-        type: "ps",
-      },
-      {
-        id: 3,
-        title: "crayons",
-        img: "god of war",
-        price: 549,
-        type: "ps",
-      },
-      {
-        id: 4,
-        title: "crayons",
-        img: "H1Z1 blue",
-        price: 549,
-        type: "ps",
-      },
-      {
-        id: 5,
-        title: "crayons",
-        img: "angel dev",
-        price: 549,
-        type: "ps",
-      },
-      {
-        id: 6,
-        title: "crayons",
-        img: "Ravathana",
-        price: 549,
-        type: "ps",
-      },
-    ]);
+  const [ps_img, set_ps_img] = useState([
+    {
+      id: 1,
+      title: "ps",
+      img: "Avatar",
+      price: 549,
+      type: "ps",offer:2
+    },
+    {
+      id: 2,
+      title: "ps",
+      img: "valhalla",
+      price: 599,
+      type: "ps",offer:10
+    },
+    {
+      id: 3,
+      title: "ps",
+      img: "god of war",
+      price: 549,
+      type: "ps",offer:7
+    },
+    {
+      id: 4,
+      title: "ps",
+      img: "H1Z1 blue",
+      price: 599,
+      type: "ps",offer:25
+    },
+    {
+      id: 5,
+      title: "ps",
+      img: "angel dev",
+      price: 549,
+      type: "ps",offer:50
+    },
+    {
+      id: 6,
+      title: "ps",
+      img: "Ravathana",
+      price: 549,
+      type: "ps",offer:9
+    },
+  ]);
 
-// scrolling
+  // scrolling
 
- const [isScrollLocked, setIsScrollLocked] = useState(false);
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
 
- useEffect(() => {
-   if (isScrollLocked) {
-     document.body.style.overflow = "hidden"; // Disable scrolling
-   } else {
-     document.body.style.overflow = "auto"; // Enable scrolling
-   }
+  useEffect(() => {
+    if (isScrollLocked) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = "auto"; // Enable scrolling
+    }
 
-   return () => {
-     document.body.style.overflow = "auto"; // Ensure scrolling is re-enabled when unmounting
-   };
- }, [isScrollLocked]);
+    return () => {
+      document.body.style.overflow = "auto"; // Ensure scrolling is re-enabled when unmounting
+    };
+  }, [isScrollLocked]);
 
+function scrollchange(){
+ 
+
+    setIsScrollLocked(false);
+  
+}  
 
   // image click
   // const [isopen, setisopen] = useState(false);
@@ -179,11 +194,11 @@ function Art_section() {
   const [click_order, set_click_order] = useState(false);
   const [click_price, set_click_price] = useState(false);
   //
-  
+
   // imageclick
   const handleImageClick = (imageData) => {
     set_open_img(imageData);
-    setIsScrollLocked(true)
+    setIsScrollLocked(true);
   };
 
   // order
@@ -219,7 +234,7 @@ function Art_section() {
         } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
       >
         <span
-          class=" text-4xl mr-52 mt-4 cursor-pointer absolute z-10 right-0 top-0"
+          class=" text-4xl cursor-pointer absolute z-10 right-5 top-1"
           onClick={() => {
             set_open_img({ img: null, open: false });
             setScale(1);
@@ -239,14 +254,17 @@ function Art_section() {
 
       {/*  */}
 
-      {/* Price order */}
+      {/* Price  */}
       <div
         id="viewclick"
         className={`${
           click_price ? "block" : "hidden"
         } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
       >
-        <Price handlePriceClick={handlePriceClick} />
+        <Price
+          handlePriceClick={handlePriceClick}
+          scrollchange={scrollchange}
+        />
       </div>
 
       {/*  */}
@@ -275,7 +293,7 @@ function Art_section() {
           </button>
           <button
             className="button_setup"
-            onClick={() => handlePriceClick(true)}
+            onClick={() => {handlePriceClick(true); setIsScrollLocked(true)}}
           >
             Price Details
           </button>

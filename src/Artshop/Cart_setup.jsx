@@ -1,8 +1,9 @@
 import React from "react";
-function Cart_setup({ datas, onImageClick ,handleOrderClick}) {
-
-  function CalTotalAmount(Discounted_Price,Discounted_Percentage){
-   let Original_Price= Math.floor((Discounted_Price/(1-(Discounted_Percentage/100))));
+function Cart_setup({ datas, onImageClick, handleOrderClick }) {
+  function CalTotalAmount(Discounted_Price, Discounted_Percentage) {
+    let Original_Price = Math.floor(
+      Discounted_Price / (1 - Discounted_Percentage / 100)
+    );
 
     let remainder = Original_Price % 10;
     if (remainder <= 5) {
@@ -26,7 +27,7 @@ function Cart_setup({ datas, onImageClick ,handleOrderClick}) {
       <div className="bg-amber-100 h-full flex flex-col items-center">
         <div className="flex gap-1 items-center mt-2">
           <span className="text-amber-100 inline-block bg-red-600 rounded-md h-fit px-4">
-            5%
+            {datas.offer}%
           </span>
           <div className="space-x-0.5">
             <small className=" text-slate-900 font-extralight relative bottom-1.5 text-sm">
@@ -38,7 +39,10 @@ function Cart_setup({ datas, onImageClick ,handleOrderClick}) {
           </div>
           <div>
             <small className="text-slate-500">
-              M.R.P:<s className="ml-1">₹{CalTotalAmount(datas.price, 5)}</s>
+              M.R.P:
+              <s className="ml-1">
+                ₹{CalTotalAmount(datas.price, datas.offer)}
+              </s>
             </small>
           </div>
         </div>

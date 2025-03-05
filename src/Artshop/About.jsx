@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import About_intro from "./About/About_intro";
 import About_footer from "./About/About_footer";
+import Journey from "./About/Journey";
+
 function About() {
   const [ver_img, set_ver_img] = useState([
     {
@@ -102,6 +104,7 @@ function About() {
             </div>
           </aside>
         </section>
+        {/* <Journey/> */}
         <About_footer />
       </section>
     </>
