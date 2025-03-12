@@ -1,5 +1,10 @@
 import React from "react";
-function Cart_setup({ datas, onImageClick, handleOrderClick }) {
+function Cart_setup({
+  datas,
+  onImageClick,
+  handleOrderClick,
+  handleImageType,
+}) {
   function CalTotalAmount(Discounted_Price, Discounted_Percentage) {
     let Original_Price = Math.floor(
       Discounted_Price / (1 - Discounted_Percentage / 100)
@@ -11,7 +16,6 @@ function Cart_setup({ datas, onImageClick, handleOrderClick }) {
     } else {
       return Original_Price - remainder + 9; // Round up to the nearest 9
     }
-    return Original_Price;
   }
 
   return (
@@ -49,7 +53,7 @@ function Cart_setup({ datas, onImageClick, handleOrderClick }) {
         <div>
           <button
             className="text-white bg-orange-400 w-32 rounded-full my-1.5 hover:bg-orange-600"
-            onClick={() => handleOrderClick(true)}
+            onClick={(() => handleOrderClick(true))}
           >
             Buy
           </button>

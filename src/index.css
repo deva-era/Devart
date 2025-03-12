@@ -28,7 +28,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-image: url(/public/artshop/mine.jpg);
+    background-image: url(/public/artshop/Background/mine.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -56,6 +56,18 @@ body{
 
 .box_shadows{
     box-shadow: 0px 0px 10px 0px #ffffff inset;
+}
+/*  */
+/* intro info */
+.images{
+  max-width: min(20rem,100%);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+#intro_info span{
+/* font-size: clamp(1.4rem,calc(7vw+1rem),5rem); */
 }
 /*  */
 /* home end */
@@ -192,80 +204,44 @@ body{
 
 }
 
+/* form2 */
+.confirmation_form span{
+  @apply font-thin
+}
+.confirmation_form h1{
+  @apply font-semibold
+}
+
 /* end */
 
-/* skills */
-
-.skills_shadow:hover{
-    text-shadow: 0 0 5px #0ff, 
-    0 0 10px #0ff, 
-    0 0 20px #0ff, 
-    0 0 50px #0ff, 
-    0 0 30px #0ff;
+/* conatct */
+#contact{
+  width: min(100vw,90%);
+  @apply mx-auto my-5
 }
 
-.red_shadow:hover{
-    text-shadow: 0 0 5px rgb(255, 34, 0), 
-    0 0 10px rgb(255, 34, 0), 
-    0 0 20px rgb(255, 34, 0), 
-    0 0 50px rgb(255, 34, 0);
-    /* 0 0 30px rgb(255, 34, 0); */
+#contact input{
+  border:1px solid #0ff;
+  width: 100%;
+  padding: 10px 20px;
+  /* background-color: #ffffff; */
+  @apply backdrop-blur-3xl
 }
-.tags_red{
-  color: red;
-}
-.tags_blue{
-  color: cyan;
-}
-.pic_shadow{
-     box-shadow: 0 0 5px rgba(3, 10, 10, 0.883), 
-    0 0 25px rgba(7, 11, 11, 0.8), 
-    0 0 50px rgba(7, 9, 9, 0.593),
-    0 0 2px rgb(17, 20, 20);
-}
-.funny{
-     box-shadow: 0px 0px 35px  rgba(255, 255, 255, 0.155);
-    /* 0 0 25px rgba(245, 181, 6, 0.8),  */
-    /* 0 0 50px rgba(245, 181, 6, 0.593), */
-    /* 15px 10px 0px rgba(255, 255, 255, 0.291); */
-}
+/* contact end /
 
-/* skil end */
-
-/* projects */
-.project_box_shadow:hover{
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.883), 
-    0 0 25px rgba(0, 255, 255, 0.8), 
-    0 0 50px rgba(0, 255, 255, 0.593),
-    0 0 2px cyan;
+/* about */
+@media (max-width:1285px){
+  #journey{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    @apply place-items-center space-y-5
 }
-
-/* project end */
-
-/* conatcr */
-
-.contact_border{
-   border:1px solid #0ff;
 }
-
-/* contact end */
-
-/* footer */
-.red_footer_shadow:hover{
-    text-shadow: 0 0 5px rgb(255, 34, 0), 
-    0 0 10px rgb(255, 34, 0), 
-    0 0 20px rgb(255, 34, 0), 
-    0 0 50px rgb(255, 34, 0);
-    /* 0 0 30px rgb(255, 34, 0); */
+@media (max-width:875px){
+  #journey{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    @apply place-items-center 
 }
-.blue_footer_shadow:hover{
-    text-shadow: 0 0 5px  #0ff, 
-    /* 0 0 10px #0ff, 
-    0 0 20px #0ff,  */
-    0 0 10px rgba(0, 255, 255, 0.379);
-    color: rgb(255, 255, 255);
 }
-
 
 /*  */
 

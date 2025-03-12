@@ -9,7 +9,7 @@ function Navbar() {
   };
   return (
     <>
-      <nav className="max-md:flex-col  flex justify-between items-center bg-transparent backdrop-blur-sm">
+      <nav className="max-md:flex-col  flex justify-between items-center bg-transparent backdrop-blur-sm ">
         <div className="max-md:flex max-md:justify-between max-md:w-11/12 max-md:mx-auto ">
           <div className="">
             <img src="./artshop/artlogo.png" alt="logo" className="h-20 " />

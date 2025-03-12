@@ -1,12 +1,39 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import Confirmation_form from "./Confirmation_form";
 
 function Form({ handleOrderClick }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: "",
+    phone: "",
+    address: "",
+    date: "",
+    file: "",
+    persons: 1,
   });
+
+  // display condition for forms
+  const [click_confirm_order, set_click_confirm_order] = useState(false);
+
+  // return_check
+  function return_check() {
+    set_click_confirm_order(false);
+  }
+
+  // confirmed order
+  function confirmed_order() {
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      date: "",
+      file: "",
+      persons: 1,
+    });
+    set_click_confirm_order(false);
+  }
 
   // Handle input changes
   const handleChange = (e) => {
@@ -16,37 +43,46 @@ function Form({ handleOrderClick }) {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormData({ name: "", email: "", password: "" });
-    handleOrderClick(false);
+    // setFormData({ name: "", email: "", password: "" });
+    set_click_confirm_order(true);
+    console.log(formData);
   };
 
   // person count
   const [person, set_person] = useState(1);
 
   function plus() {
-    if (person < 10) {
-      set_person((data) => data + 1);
-    } else {
-      return "Reached max limit of persons!!!";
+    if (formData.persons < 10) {
+      // set_person((data) => data + 1);
+      setFormData((prevData) => ({
+        ...prevData,
+        persons: prevData.persons + 1,
+      }));
     }
   }
 
   function minus() {
-    if (person >= 2) {
-      set_person((data) => data - 1);
-    } else {
-      return "  Minimum should be 1 person !!!";
+    if (formData.persons >= 2) {
+      // set_person((data) => data - 1);
+      setFormData((prevData) => ({
+        ...prevData,
+        persons: prevData.persons - 1,
+      }));
     }
   }
   // count end
 
   return (
     <div>
-      <div className=" mx-auto bg-black/10 rounded-xl my-auto w-8/12 relative mt-16">
+      <div
+        className={`mx-auto bg-black/10 rounded-xl my-auto w-8/12 relative mt-16 ${
+          click_confirm_order ? "hidden" : "block"
+        }`}
+      >
         {/* close */}
         <button
           class=" text-sm absolute right-8 top-2 cursor-pointer px-5 border rounded-lg bg-red-800  "
-          onClick={() => handleOrderClick(false)}
+          onClick={() => handleOrderClick()}
         >
           Close
         </button>
@@ -61,13 +97,15 @@ function Form({ handleOrderClick }) {
         <form id="form1" onSubmit={handleSubmit} className="form-container p-5">
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="firstName">Name:</label>
+              <label htmlFor="Name">Name:</label>
               <input
                 type="text"
-                id="firstName"
-                name="firstName"
+                id="Name"
+                name="name"
+                value={formData.name}
                 onSubmit={handleSubmit}
                 placeholder="Enter name"
+                onChange={handleChange}
                 required
               />
             </div>
@@ -75,8 +113,10 @@ function Form({ handleOrderClick }) {
               <label htmlFor="Email">Email:</label>
               <input
                 type="text"
-                id="lastName"
-                name="lastName"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 onSubmit={handleSubmit}
                 placeholder="Enter Email"
                 required
@@ -91,6 +131,8 @@ function Form({ handleOrderClick }) {
                 type="tel"
                 id="phone"
                 name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 onSubmit={handleSubmit}
                 placeholder="Ex.938868XXXX"
                 pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
@@ -104,6 +146,8 @@ function Form({ handleOrderClick }) {
                 type="text"
                 id="address"
                 name="address"
+                onChange={handleChange}
+                value={formData.address}
                 onSubmit={handleSubmit}
                 placeholder="Enter Address"
                 required
@@ -118,27 +162,39 @@ function Form({ handleOrderClick }) {
                 <button className="countperson mr-2" onClick={plus}>
                   +
                 </button>
-                <span className=" person text-center bg-white">{person}</span>
+                <span
+                  className=" person text-center bg-white"
+                  id="persons"
+                  name="persons"
+                  value={formData.persons}
+                  onSubmit={handleSubmit}
+                >
+                  {formData.persons}
+                </span>
                 <button className=" ml-2 countperson" onClick={minus}>
                   -
                 </button>
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Expecting Date:</label>
+              <label htmlFor="date">Expecting Date:</label>
               <input
                 type="date"
                 id="date"
                 name="date"
+                value={formData.date}
+                onChange={handleChange}
                 placeholder="Enter Date"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Image:</label>
+              <label htmlFor="file">Image:</label>
               <input
                 type="file"
                 id="file"
+                value={formData.file}
+                onChange={handleChange}
                 className="cursor-pointer border-none "
                 name="file"
                 required
@@ -156,6 +212,24 @@ function Form({ handleOrderClick }) {
             Place Order
           </button>
         </form>
+      </div>
+
+      {/* Confirmation_form  */}
+      <div
+        id="viewclick"
+        className={`${
+          click_confirm_order ? "block" : "hidden"
+        } fixed inset-0 w-full h-full `}
+      >
+        {" "}
+        <div className=" mx-auto bg-black/10 rounded-xl my-auto w-8/12 relative mt-16">
+          <Confirmation_form
+            return_check={return_check}
+            handleOrderClick={handleOrderClick}
+            user_data={formData}
+            confimed_order={confirmed_order}
+          />
+        </div>
       </div>
     </div>
   );

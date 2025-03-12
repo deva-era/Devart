@@ -1,6 +1,4 @@
 import React from "react";
-import { AiOutlineDoubleLeft } from "react-icons/ai";
-import { AiOutlineDoubleRight } from "react-icons/ai";
 import { useState } from "react";
 import { useEffect } from "react";
 import About_intro from "./About/About_intro";
@@ -8,66 +6,183 @@ import About_footer from "./About/About_footer";
 import Journey from "./About/Journey";
 
 function About() {
-  const [ver_img, set_ver_img] = useState([
+  const [portrait_img, set_portrait_img] = useState([
     {
       id: 1,
-      title: "Sharmi himalaya frds",
+      title: "portrait",
+      year: 2025,
       img: "0",
       price: 1999,
-      year: 2024,
+      type: "portrait",
+      offer: 50,
     },
     {
       id: 2,
-      title: "Harshini",
+      title: "portrait",
+      year: 2025,
       img: "1",
       price: 1499,
-      year: 2024,
+      type: "portrait",
+      offer: 10,
     },
     {
       id: 3,
-      title: "Darkdress 3 family ",
+      title: "portrait",
+      year: 2025,
       img: "2",
-      year: 2024,
+      price: 2499,
+      type: "portrait",
+      offer: 30,
+    },
+
+
+    // landscape
+    {
+      id: 1,
+      title: "landscape",
+      year: 2025,
+      img: "0",
+      price: 2999,
+      type: "landscape",
+      offer: 5,
+    },
+    {
+      id: 2,
+      title: "landscape",
+      year: 2025,
+      img: "1",
+      price: 1999,
+      type: "landscape",
+      offer: 20,
+    },
+    {
+      id: 3,
+      title: "landscape",
+      year: 2025,
+      img: "2",
+      price: 2499,
+      type: "landscape",
+      offer: 45,
     },
   ]);
 
+  // crayons
+  const [crayons_img, set_crayons_img] = useState([
+    {
+      id: 1,
+      title: "crayons",
+      year: 2025,
+      img: "sun and moon island",
+      price: 549,
+      type: "crayons",
+      offer: 3,
+    },
+    {
+      id: 2,
+      title: "crayons",
+      year: 2025,
+      img: "couple with umberlla",
+      price: 599,
+      type: "crayons",
+      offer: 5,
+    },
+    {
+      id: 3,
+      title: "crayons",
+      year: 2025,
+      img: "flying island",
+      price: 549,
+      type: "crayons",
+      offer: 15,
+    },
+    {
+      id: 4,
+      title: "crayons",
+      year: 2025,
+      img: "seasons",
+      price: 549,
+      type: "crayons",
+      offer: 4,
+    },
+    {
+      id: 5,
+      title: "crayons",
+      year: 2025,
+      img: "sitting on sky night",
+      price: 549,
+      type: "crayons",
+      offer: 10,
+    },
+    {
+      id: 6,
+      title: "crayons",
+      year: 2025,
+      img: "deer couple",
+      price: 549,
+      type: "crayons",
+      offer: 2,
+    },
+  ]);
 
-  const [slide_img, set_slide_img] = useState(0);
-
-  // const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Effect to change the image every 3 seconds (3000ms)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      set_slide_img((prevIndex) => (prevIndex + 1) % ver_img.length);
-    }, 3000); // 3000ms for 3 seconds
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(interval);
-  }, []);
-
-  function right() {
-    if (slide_img >= ver_img.length - 1) {
-      set_slide_img(0);
-    } else {
-      set_slide_img((data) => data + 1);
-    }
-  }
-  // console.log(16%2);
-  function left() {
-    if (slide_img <= 0) {
-      set_slide_img(ver_img.length - 1);
-    } else {
-      set_slide_img((data) => data - 1);
-    }
-  }
+  const [ps_img, set_ps_img] = useState([
+    {
+      id: 1,
+      title: "ps",
+      year: 2025,
+      img: "Avatar",
+      price: 549,
+      type: "ps",
+      offer: 2,
+    },
+    {
+      id: 2,
+      title: "ps",
+      year: 2025,
+      img: "valhalla",
+      price: 599,
+      type: "ps",
+      offer: 10,
+    },
+    {
+      id: 3,
+      title: "ps",
+      year: 2025,
+      img: "god of war",
+      price: 549,
+      type: "ps",
+      offer: 7,
+    },
+    {
+      id: 4,
+      title: "ps",
+      year: 2025,
+      img: "H1Z1 blue",
+      price: 599,
+      type: "ps",
+      offer: 25,
+    },
+    {
+      id: 5,
+      title: "ps",
+      year: 2025,
+      img: "angel dev",
+      price: 549,
+      type: "ps",
+      offer: 50,
+    },
+    {
+      id: 6,
+      title: "ps",
+      year: 2025,
+      img: "Ravathana",
+      price: 549,
+      type: "ps",
+      offer: 9,
+    },
+  ]);
 
   return (
     <>
-      <div
-        id="viewclick"
-        className={` -z-30  backdrop-blur-none fixed inset-0 w-full h-full home-page `}
-      ></div>
       <section className="">
         <About_intro />
 
@@ -75,36 +190,16 @@ function About() {
           <div className="text-center mb-8 text-5xl font-semibold font-cinzel ">
             Journey{" "}
           </div>
-          <aside>
-            <div
-              style={{ height: 350, width: 400 }}
-              className="relative bg-white mx-auto rounded-lg"
-            >
-              <div
-                className="text-black text-3xl absolute bottom-2/4 -left-14  cursor-pointer header_menu"
-                onClick={left}
-              >
-                {" "}
-                <AiOutlineDoubleLeft />
-              </div>
-              <div
-                className="text-black text-3xl absolute -right-14 bottom-2/4 cursor-pointer header_menu"
-                onClick={right}
-              >
-                <AiOutlineDoubleRight />
-              </div>
-
-              <img
-                src={`./artshop/card images/${slide_img}.jpg `}
-                alt=""
-                className="object-cover w-full h-full rounded-lg overflow-hidden"
-                style={{ transition: "transform 1s ease-in-out" }}
-              />
-              <span className="flex justify-center mt-3">{ver_img[slide_img].year}</span>
-            </div>
-          </aside>
+          <div
+            id="journey"
+            className="grid grid-cols-3 gap-8 w-11/12 place-items-center mx-auto "
+          >
+            <Journey data={portrait_img} />
+            <Journey data={crayons_img} />
+            <Journey data={ps_img} />
+          </div>
         </section>
-        {/* <Journey/> */}
+
         <About_footer />
       </section>
     </>

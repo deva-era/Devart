@@ -1,11 +1,10 @@
 import React from "react";
 import Cart_setup from "./Cart_setup";
-import { useState } from "react";
+import { useState, createContext, useEffect} from "react";
 import Form from "./Art_elements/Form";
 import Price from "./Art_elements/Price";
 import Divider from "./Divider";
-import { useEffect } from "react";
-
+import { useHref } from "react-router-dom";
 function Art_section() {
   // vertical
   const [portrait_img, set_portrait_img] = useState([
@@ -40,7 +39,7 @@ function Art_section() {
     {
       id: 1,
       title: "landscape",
-      img: "1",
+      img: "0",
       price: 2999,
       type: "landscape",
       offer: 5,
@@ -48,7 +47,7 @@ function Art_section() {
     {
       id: 2,
       title: "landscape",
-      img: "2",
+      img: "1",
       price: 1999,
       type: "landscape",
       offer: 20,
@@ -56,7 +55,7 @@ function Art_section() {
     {
       id: 3,
       title: "landscape",
-      img: "3",
+      img: "2",
       price: 2499,
       type: "landscape",
       offer: 45,
@@ -121,42 +120,48 @@ function Art_section() {
       title: "ps",
       img: "Avatar",
       price: 549,
-      type: "ps",offer:2
+      type: "ps",
+      offer: 2,
     },
     {
       id: 2,
       title: "ps",
       img: "valhalla",
       price: 599,
-      type: "ps",offer:10
+      type: "ps",
+      offer: 10,
     },
     {
       id: 3,
       title: "ps",
       img: "god of war",
       price: 549,
-      type: "ps",offer:7
+      type: "ps",
+      offer: 7,
     },
     {
       id: 4,
       title: "ps",
       img: "H1Z1 blue",
       price: 599,
-      type: "ps",offer:25
+      type: "ps",
+      offer: 25,
     },
     {
       id: 5,
       title: "ps",
       img: "angel dev",
       price: 549,
-      type: "ps",offer:50
+      type: "ps",
+      offer: 50,
     },
     {
       id: 6,
       title: "ps",
       img: "Ravathana",
       price: 549,
-      type: "ps",offer:9
+      type: "ps",
+      offer: 9,
     },
   ]);
 
@@ -176,12 +181,9 @@ function Art_section() {
     };
   }, [isScrollLocked]);
 
-function scrollchange(){
- 
-
+  function scrollchange() {
     setIsScrollLocked(false);
-  
-}  
+  }
 
   // image click
   // const [isopen, setisopen] = useState(false);
@@ -206,6 +208,13 @@ function scrollchange(){
     set_click_order(order);
   };
 
+//image type sent to confirm page
+ const [typeimage,set_typeimage]=useState(null);
+  const handleImageType = (type) => {
+    set_typeimage(type);
+    console.log(typeimage);
+  };
+
   // price
   const handlePriceClick = (price) => {
     set_click_price(price);
@@ -224,151 +233,153 @@ function scrollchange(){
 
   //
   return (
-    <section className="relative w-full h-full   ">
-      {/* image click */}
-      <div
-        onWheel={handleWheel}
-        id="viewclick"
-        className={`${
-          open_img.open ? "block" : "hidden"
-        } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
-      >
-        <span
-          class=" text-4xl cursor-pointer absolute z-10 right-5 top-1"
-          onClick={() => {
-            set_open_img({ img: null, open: false });
-            setScale(1);
-            setIsScrollLocked(false);
-          }}
+    <>
+      <section className="relative w-full h-full   ">
+        {/* image click */}
+        <div
+          onWheel={handleWheel}
+          id="viewclick"
+          className={`${
+            open_img.open ? "block" : "hidden"
+          } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
         >
-          &times;
-        </span>
-
-        <img
-          src={`./artshop/card images/${open_img.type}/${open_img.img}.jpg `}
-          className="object-contain w-5/12 h-5/6 mx-auto transition-transform duration-300 mt-20"
-          style={{ transform: `scale(${scale})` }}
-          alt="closed"
-        />
-      </div>
-
-      {/*  */}
-
-      {/* Price  */}
-      <div
-        id="viewclick"
-        className={`${
-          click_price ? "block" : "hidden"
-        } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
-      >
-        <Price
-          handlePriceClick={handlePriceClick}
-          scrollchange={scrollchange}
-        />
-      </div>
-
-      {/*  */}
-
-      {/* Order click */}
-      <div
-        id="viewclick"
-        className={`${
-          click_order ? "block" : "hidden"
-        } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
-      >
-        <Form handleOrderClick={handleOrderClick} />{" "}
-      </div>
-      {/*  */}
-
-      {/* price */}
-
-      {/* button */}
-      <div className="z-0">
-        <div className="flex gap-10 justify-end w-10/12 mx-auto mt-8 max-md:flex-col">
-          <button
-            className="button_setup "
-            onClick={() => handleOrderClick(true)}
+          <span
+            class=" text-4xl cursor-pointer absolute z-10 right-5 top-1"
+            onClick={() => {
+              set_open_img({ img: null, open: false });
+              setScale(1);
+              setIsScrollLocked(false);
+            }}
           >
-            Place Order
-          </button>
-          <button
-            className="button_setup"
-            onClick={() => {handlePriceClick(true); setIsScrollLocked(true)}}
-          >
-            Price Details
-          </button>
+            &times;
+          </span>
+
+          <img
+            src={`./artshop/card images/${open_img.type}/${open_img.img}.jpg `}
+            className="object-contain w-5/12 h-5/6 mx-auto transition-transform duration-300 mt-20"
+            style={{ transform: `scale(${scale})` }}
+            alt="closed"
+          />
         </div>
+
         {/*  */}
 
-        {/* portrait */}
-        <div className="mt-10">
-          <Divider divider_name="PORTRAIT" />
+        {/* Price  */}
+        <div
+          id="viewclick"
+          className={`${
+            click_price ? "block" : "hidden"
+          } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
+        >
+          <Price
+            handlePriceClick={handlePriceClick}
+            scrollchange={scrollchange}
+          />
         </div>
-        <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-16 mx-auto mb-10 py-10 ">
-          {portrait_img.map((data) => {
-            return (
-              <Cart_setup
-                key={data.id}
-                datas={data}
-                onImageClick={handleImageClick}
-                handleOrderClick={handleOrderClick}
-              />
-            );
-          })}
-        </section>
 
-        {/* landscape */}
-        <div>
-          <Divider divider_name="LANDSCAPE" />
-        </div>
-        <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
-          {landscape_img.map((data) => {
-            return (
-              <Cart_setup
-                key={data.id}
-                datas={data}
-                onImageClick={handleImageClick}
-                handleOrderClick={handleOrderClick}
-              />
-            );
-          })}
-        </section>
+        {/*  */}
 
-        {/* Cryons */}
-        <div>
-          <Divider divider_name="CRAYONS" />
-        </div>
-        <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
-          {crayons_img.map((data) => {
-            return (
-              <Cart_setup
-                key={data.id}
-                datas={data}
-                onImageClick={handleImageClick}
-                handleOrderClick={handleOrderClick}
-              />
-            );
-          })}
-        </section>
+        {/* Order click */}
+        <div
+          id="viewclick"
+          className={`${
+            click_order ? "block" : "hidden"
+          } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
+        >
+          <Form handleOrderClick={handleOrderClick} />{" "}
+        </div> 
 
-        {/* Photoshop */}
-        <div>
-          <Divider divider_name="PHOTOSHOP" />
+        {/* price */}
+
+        {/* button */}
+        <div className="z-0">
+          <div className="flex gap-10 justify-end w-10/12 mx-auto mt-8 max-md:flex-col">
+            <button
+              className="button_setup"
+              onClick={() => {
+                handlePriceClick(true);
+                setIsScrollLocked(true);
+              }}
+            >
+              Price Details
+            </button>
+          </div>
+          {/*  */}
+
+          {/* portrait */}
+          <div className="mt-10">
+            <Divider divider_name="PORTRAIT" />
+          </div>
+          <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-16 mx-auto mb-10 py-10 ">
+            {portrait_img.map((data) => {
+              return (
+                <Cart_setup
+                  key={data.id}
+                  datas={data}
+                  onImageClick={handleImageClick}
+                  handleOrderClick={handleOrderClick}
+                  handleImageType={handleImageType}
+                />
+              );
+            })}
+          </section>
+
+          {/* landscape */}
+          <div>
+            <Divider divider_name="LANDSCAPE" />
+          </div>
+          <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
+            {landscape_img.map((data) => {
+              return (
+                <Cart_setup
+                  key={data.id}
+                  datas={data}
+                  onImageClick={handleImageClick}
+                  handleOrderClick={handleOrderClick}
+                  handleImageType={handleImageType}
+                />
+              );
+            })}
+          </section>
+
+          {/* Cryons */}
+          <div>
+            <Divider divider_name="CRAYONS" />
+          </div>
+          <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
+            {crayons_img.map((data) => {
+              return (
+                <Cart_setup
+                  key={data.id}
+                  datas={data}
+                  onImageClick={handleImageClick}
+                  handleOrderClick={handleOrderClick}
+                  handleImageType={handleImageType}
+                />
+              );
+            })}
+          </section>
+
+          {/* Photoshop */}
+          <div>
+            <Divider divider_name="PHOTOSHOP" />
+          </div>
+          <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
+            {ps_img.map((data) => {
+              return (
+                <Cart_setup
+                  key={data.id}
+                  datas={data}
+                  onImageClick={handleImageClick}
+                  handleOrderClick={handleOrderClick}
+                  handleImageType={handleImageType}
+                />
+              );
+            })}
+          </section>
         </div>
-        <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
-          {ps_img.map((data) => {
-            return (
-              <Cart_setup
-                key={data.id}
-                datas={data}
-                onImageClick={handleImageClick}
-                handleOrderClick={handleOrderClick}
-              />
-            );
-          })}
-        </section>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

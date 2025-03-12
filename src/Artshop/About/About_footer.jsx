@@ -8,7 +8,7 @@ function About_footer() {
         <div class="pt-8 flex max-w-60 mx-auto items-center justify-between">
           <a
             href="#"
-            class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+            class="text-white transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
           >
             <svg
               width="20"
@@ -24,7 +24,7 @@ function About_footer() {
           <a
             href="https://www.instagram.com/devtheart_?igsh=MXZqYm1pa3pzZGkxNw=="
             target="_blank"
-            class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+            class="text-white transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
           >
             {" "}
             <FaInstagram />
@@ -32,7 +32,7 @@ function About_footer() {
           <a
             href="https://github.com/deva-era"
             target="_blank"
-            class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+            class="text-white transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function About_footer() {
           <a
             href="http://www.linkedin.com/in/devanathan-v-4a811931b"
             target="_blank"
-            class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+            class="text-white transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
           >
             <svg
               width="20"

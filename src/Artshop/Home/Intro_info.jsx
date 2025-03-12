@@ -19,12 +19,9 @@ function Intro_info({ data }) {
   ]);
 
   return (
-    <section className="flex flex-col gap-40 max-sm:gap-10">
-
+    <section id="intro_info" className="flex flex-col gap-40 max-sm:gap-10">
       {/* pencil */}
-      <div
-        className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-4 max-md:h-auto  max-xl:home_section_height "
-      >
+      <div className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-4 max-md:h-auto  max-xl:home_section_height ">
         <div className="max-md:flex max-md:flex-col">
           <div className="">
             <span className="font-cinzel font-bold text-5xl ">Pencil</span>
@@ -46,9 +43,9 @@ function Intro_info({ data }) {
           </div>
         </div>
         {/* img */}
-        <div className="border h-fit w-full">
+        <div className="">
           <img
-            className="object-contain w-full px-10 py-10 "
+            className="images border"
             src="./artshop/elements/Pencil1.png"
             alt=""
           />
@@ -57,7 +54,7 @@ function Intro_info({ data }) {
 
       {/* Crayons info */}
       <div className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-10 max-md:h-auto  max-xl:home_section_height">
-        <div className="order-2 w-5/5  pl-10 max-sm:order-1">
+        <div className="order-2 w-5/5  max-sm:order-1">
           <div className="">
             <span className="font-cinzel font-bold text-5xl ">Crayons</span>
             <span>&nbsp;-"A World of Color in Every Stroke"</span>
@@ -77,11 +74,11 @@ function Intro_info({ data }) {
             })}
           </div>
         </div>
-        <div className="border h-fit order-0 max-sm:order-1 max-sm:mt-9">
+        <div className="order-0 max-sm:order-1 max-sm:mt-9">
           <img
-            className="object-contain "
+            className="images border"
             src="./artshop/elements/homecrayons.png"
-            alt=""
+            alt="homecrayons.png"
           />
         </div>
       </div>
@@ -89,7 +86,7 @@ function Intro_info({ data }) {
       {/* Photoshop */}
       <div
         // style={{ height: 373.66 }}
-        className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-4 max-md:h-auto  max-xl:home_section_height"
+        className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-4 max-md:h-auto  mb-5 max-xl:home_section_height"
       >
         <div className="">
           <div className="">
@@ -112,13 +109,13 @@ function Intro_info({ data }) {
             })}
           </div>
         </div>
-        <div className="border w-full h-fit ">
+        <span className="">
           <img
-            className="object-contain "
+            className="images border"
             src="./artshop/elements/photoshop.jpg"
             alt=""
           />
-        </div>
+        </span>
       </div>
     </section>
   );
