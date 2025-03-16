@@ -4,6 +4,7 @@ import Contact from "./Artshop/Contact";
 import Home from "./Artshop/Home";
 import About from "./Artshop/About";
 import {  HashRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <>

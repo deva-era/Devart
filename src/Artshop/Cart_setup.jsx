@@ -1,10 +1,7 @@
 import React from "react";
-function Cart_setup({
-  datas,
-  onImageClick,
-  handleOrderClick,
-  handleImageType,
-}) {
+function Cart_setup({ datas, onImageClick, handleOrderClick, handleBuyData }) {
+  
+let Total=1;
   function CalTotalAmount(Discounted_Price, Discounted_Percentage) {
     let Original_Price = Math.floor(
       Discounted_Price / (1 - Discounted_Percentage / 100)
@@ -18,6 +15,12 @@ function Cart_setup({
     }
   }
 
+  let imageclickdata = datas;
+
+  imageclickdata.totalAmount = CalTotalAmount(datas.price, datas.offer);
+
+  imageclickdata.discount =imageclickdata.totalAmount- datas.price;
+  
   return (
     <div className="backdrop-blur-md border-slate-50/10 border flex-col hover:scale-105 duration-150 items-start rounded-2xl overflow-hidden h-fit card_width ">
       <img
@@ -53,7 +56,10 @@ function Cart_setup({
         <div>
           <button
             className="text-white bg-orange-400 w-32 rounded-full my-1.5 hover:bg-orange-600"
-            onClick={(() => handleOrderClick(true))}
+            onClick={() => {
+              handleOrderClick(true);
+              handleBuyData(imageclickdata);
+            }}
           >
             Buy
           </button>

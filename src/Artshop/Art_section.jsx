@@ -1,10 +1,13 @@
 import React from "react";
 import Cart_setup from "./Cart_setup";
-import { useState, createContext, useEffect} from "react";
+import { useState, createContext, useEffect } from "react";
 import Form from "./Art_elements/Form";
 import Price from "./Art_elements/Price";
 import Divider from "./Divider";
-import { useHref } from "react-router-dom";
+import Ordered_animation from "./Art_elements/Ordered_animation";
+
+export const Buydatas=createContext();
+
 function Art_section() {
   // vertical
   const [portrait_img, set_portrait_img] = useState([
@@ -12,7 +15,7 @@ function Art_section() {
       id: 1,
       title: "portrait",
       img: "0",
-      price: 1999,
+      price: 2499,
       type: "portrait",
       offer: 50,
     },
@@ -28,7 +31,7 @@ function Art_section() {
       id: 3,
       title: "portrait",
       img: "2",
-      price: 2499,
+      price: 1999,
       type: "portrait",
       offer: 30,
     },
@@ -206,14 +209,22 @@ function Art_section() {
   // order
   const handleOrderClick = (order) => {
     set_click_order(order);
+    if (order){
+      setIsScrollLocked(true);
+    }else{
+      setIsScrollLocked(false);
+    }
   };
 
-//image type sent to confirm page
- const [typeimage,set_typeimage]=useState(null);
-  const handleImageType = (type) => {
-    set_typeimage(type);
-    console.log(typeimage);
+  //image type sent to confirm page
+  const [Buydata, set_Buydata] = useState(null);
+  const handleBuyData = (data) => {
+    set_Buydata(data);
   };
+
+  useEffect(() => {
+    console.log(Buydata);
+  }, [Buydata]);
 
   // price
   const handlePriceClick = (price) => {
@@ -231,17 +242,46 @@ function Art_section() {
     });
   };
 
+  // coofirmed order congradulation
+  const [congrates, set_congrates] = useState(false);
+  const handle_congrates = (status) => {
+    set_congrates(status);
+    setTimeout(() => {
+      // set_congrates(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    if (congrates) {
+      setIsScrollLocked(true);
+    } else {
+      setIsScrollLocked(false);
+    }
+  }, [congrates]);
   //
   return (
     <>
       <section className="relative w-full h-full   ">
+        {/* animation congrates */}
+        <div
+          onWheel={handleWheel}
+          id="viewclick"
+          className={`${
+            congrates ? "block" : "hidden"
+          } z-10  backdrop-blur-sm fixed inset-0 w-screen h-screen  bg-black/55 flex justify-center items-center`}
+        >
+          {congrates && (
+            <Ordered_animation handle_congrates={handle_congrates} />
+          )}
+        </div>
+
         {/* image click */}
         <div
           onWheel={handleWheel}
           id="viewclick"
           className={`${
             open_img.open ? "block" : "hidden"
-          } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
+          } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 transition-opacity`}
         >
           <span
             class=" text-4xl cursor-pointer absolute z-10 right-5 top-1"
@@ -256,7 +296,7 @@ function Art_section() {
 
           <img
             src={`./artshop/card images/${open_img.type}/${open_img.img}.jpg `}
-            className="object-contain w-5/12 h-5/6 mx-auto transition-transform duration-300 mt-20"
+            className="object-contain w-5/12 h-5/6 mx-auto transition-transform duration-300 mt-14"
             style={{ transform: `scale(${scale})` }}
             alt="closed"
           />
@@ -279,15 +319,20 @@ function Art_section() {
 
         {/*  */}
 
-        {/* Order click */}
+        {/* Order click and form open*/}
         <div
           id="viewclick"
           className={`${
             click_order ? "block" : "hidden"
           } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
         >
-          <Form handleOrderClick={handleOrderClick} />{" "}
-        </div> 
+          <Buydatas.Provider value={Buydata}>
+            <Form
+              handleOrderClick={handleOrderClick}
+              handle_congrates={handle_congrates}
+            />
+          </Buydatas.Provider>
+        </div>
 
         {/* price */}
 
@@ -318,7 +363,7 @@ function Art_section() {
                   datas={data}
                   onImageClick={handleImageClick}
                   handleOrderClick={handleOrderClick}
-                  handleImageType={handleImageType}
+                  handleBuyData={handleBuyData}
                 />
               );
             })}
@@ -336,7 +381,7 @@ function Art_section() {
                   datas={data}
                   onImageClick={handleImageClick}
                   handleOrderClick={handleOrderClick}
-                  handleImageType={handleImageType}
+                  handleBuyData={handleBuyData}
                 />
               );
             })}
@@ -354,7 +399,7 @@ function Art_section() {
                   datas={data}
                   onImageClick={handleImageClick}
                   handleOrderClick={handleOrderClick}
-                  handleImageType={handleImageType}
+                  handleBuyData={handleBuyData}
                 />
               );
             })}
@@ -365,14 +410,14 @@ function Art_section() {
             <Divider divider_name="PHOTOSHOP" />
           </div>
           <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
-            {ps_img.map((data) => {
+            {ps_img.map((data, index) => {
               return (
                 <Cart_setup
-                  key={data.id}
+                  key={index}
                   datas={data}
                   onImageClick={handleImageClick}
                   handleOrderClick={handleOrderClick}
-                  handleImageType={handleImageType}
+                  handleBuyData={handleBuyData}
                 />
               );
             })}

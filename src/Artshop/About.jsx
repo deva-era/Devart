@@ -9,61 +9,73 @@ function About() {
   const [portrait_img, set_portrait_img] = useState([
     {
       id: 1,
-      title: "portrait",
+      title: "Black custume couples",
       year: 2025,
       img: "0",
       price: 1999,
       type: "portrait",
       offer: 50,
+      // sub: false,
     },
     {
       id: 2,
-      title: "portrait",
-      year: 2025,
+      title: "Harshini",
+      year: 2024,
       img: "1",
       price: 1499,
       type: "portrait",
       offer: 10,
+      // sub: false,
     },
     {
       id: 3,
-      title: "portrait",
+      title: "ordering akka",
       year: 2025,
       img: "2",
       price: 2499,
       type: "portrait",
       offer: 30,
+      // sub: false,
     },
-
+    {
+      id: 4,
+      title: "alita-2020",
+      year: 2020,
+      img: "alita-2020",
+      price: 2499,
+      type: "portrait",
+      offer: 30,
+      sub: true,
+    },
 
     // landscape
-    {
-      id: 1,
-      title: "landscape",
-      year: 2025,
-      img: "0",
-      price: 2999,
-      type: "landscape",
-      offer: 5,
-    },
-    {
-      id: 2,
-      title: "landscape",
-      year: 2025,
-      img: "1",
-      price: 1999,
-      type: "landscape",
-      offer: 20,
-    },
-    {
-      id: 3,
-      title: "landscape",
-      year: 2025,
-      img: "2",
-      price: 2499,
-      type: "landscape",
-      offer: 45,
-    },
+    // {
+    //   id: 1,
+    //   title: "landscape",
+    //   year: 2025,
+    //   img: "0",
+    //   price: 2999,
+    //   type: "landscape",
+    //   offer: 5,
+    // },
+    // {
+    //   id: 2,
+    //   title: "landscape",
+    //   year: 2025,
+    //   img: "1",
+    //   price: 1999,
+    //   type: "landscape",
+    //   offer: 20,
+    // },
+    // {
+    //   id: 3,
+    //   title: "landscape",
+    //   year: 2025,
+    //   img: "2",
+    //   price: 2499,
+    //   type: "landscape",
+    //   offer: 45,
+    // },
   ]);
 
   // crayons
@@ -123,7 +135,7 @@ function About() {
       offer: 2,
     },
   ]);
-
+// ps
   const [ps_img, set_ps_img] = useState([
     {
       id: 1,

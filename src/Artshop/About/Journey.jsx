@@ -56,7 +56,7 @@ function Journey({ data }) {
         </div>
 
         <img
-          src={`./artshop/card images/${ver_img[slide_img].type}/${ver_img[slide_img].img}.jpg `}
+          src={`./artshop/card images/${ver_img[slide_img].type}/${ver_img[slide_img].sub ? "sub/":"" }${ver_img[slide_img].img}.jpg `}
           alt=""
           className="object-cover w-full h-full rounded-lg overflow-hidden"
           style={{ transition: "transform 1s ease-in-out" }}

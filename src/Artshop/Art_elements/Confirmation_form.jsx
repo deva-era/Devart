@@ -1,4 +1,7 @@
 import React from "react";
+import { useContext,useState} from "react";
+import { Buydatas } from "../Art_section";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function Confirmation_form({
   return_check,
@@ -6,8 +9,18 @@ function Confirmation_form({
   handleOrderClick,
   user_data,
 }) {
+  let Buyingdata = useContext(Buydatas);
+  const [recieved_data, set_recieved_data] =useState(null);
+   console.log(Buyingdata);
+    console.log("hiu");
+  function recieving_data() {
+    // Buyingdata.temp="he";
+    // console.log(Buyingdata.price);
+  }
+
+  //reverse date
   let desired_format_date = user_data.date.split("-").reverse().join("-");
-  console.log(desired_format_date);
+
   return (
     <div className="confirmation_form ">
       {/* close */}
@@ -31,40 +44,68 @@ function Confirmation_form({
         Place Order
       </div>
 
-      <section id="form1" className="form-container p-5 ">
-        <div className=" grid grid-cols-2 max-md:grid-cols-1 mx-auto w-full gap-y-1">
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2 ">
-            <h1>Name:</h1>
-            <span>{user_data.name}</span>
-          </div>
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>Email:</h1>
-            <span>{user_data.email}</span>
-          </div>
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>Ph.no:</h1>
-            <span>{user_data.phone}</span>
-          </div>
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>temp:</h1>
-            <span>temp</span>
-          </div>
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>Artwork type:</h1>
-            <span>landscape</span>
-          </div>
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>Expecting Date:</h1>
-            <span>{desired_format_date}</span>
-          </div>
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>No.of person:</h1>
-            <span>{user_data.persons}</span>
+      <section id="form1" className="form-container ">
+        <div className="flex relative justify-center gap-6">
+          <div className="w-3/6 border p-2 rounded-lg h-96 border-slate-50/10 flex flex-col flex-wrap">
+            <img
+              src={`./artshop/card images/portrait/0.jpg `}
+              alt={`hi`}
+              className=" object-contain w-full h-full"
+            />
+            <div className="relative bottom-2 ">1</div>
           </div>
 
-          <div className="grid grid-cols-2 md:-space-x-4  max-sm:space-x-2">
-            <h1>Address:</h1>
-            <p className="w-1/4 h-full flex flex-wrap">{user_data.address}</p>
+          <div>
+            {/* user details*/}
+            <div className="flex flex-col justify-center w-64 pb-1 ">
+              <div className="ml-3 flex flex-col ">
+                <span className=" font-extrabold font-serif text-indigo-200">
+                  Expecting: {desired_format_date}
+                </span>
+                <div className="grid grid-cols-2">
+                  <div className=" flex flex-col ">
+                    <span>Email:</span>
+                    <span>Phone:</span>
+                  </div>
+                  <div className="flex flex-col ">
+                    <p className="text-thin ">{user_data.email}</p>
+                    <span>+{user_data.phone}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Address */}
+            <div className="flex flex-col border-b-4 w-64 pb-1 border-t-4 ">
+              Address:
+              <div className="ml-3 flex flex-col ">
+                <span className=" font-extrabold font-serif text-indigo-200 ">
+                  Delivery to{" "}
+                  <span className="capitalize">{user_data.name}</span>
+                </span>
+                <p className="text-sm font-thin">{user_data.address}</p>
+              </div>
+            </div>
+            {/* Delivery */}
+            <div className="flex flex-col border-b-4 w-64 ">
+              Order details
+              <div className="grid grid-cols-2">
+                <div className="ml-3 flex flex-col ">
+                  <span>Items:</span>
+                  <span>Discount:</span>
+                  <span>Delivery:</span>
+                  <span className=" font-extrabold font-cinzel">
+                    Order Total:
+                  </span>
+                </div>
+                <div className="ml-3 flex flex-col ">
+                  <span>:</span>
+                  <span className=" "> -₹100.00</span>
+                  <span> ₹250.00</span>
+                  <span className=" font-extrabold font-cinzel">₹Order.00</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

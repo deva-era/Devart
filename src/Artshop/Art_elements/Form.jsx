@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import Confirmation_form from "./Confirmation_form";
 
-function Form({ handleOrderClick }) {
+function Form({ handleOrderClick, handle_congrates }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,6 +33,7 @@ function Form({ handleOrderClick }) {
       persons: 1,
     });
     set_click_confirm_order(false);
+    handle_congrates(true);
   }
 
   // Handle input changes
@@ -106,7 +107,7 @@ function Form({ handleOrderClick }) {
                 onSubmit={handleSubmit}
                 placeholder="Enter name"
                 onChange={handleChange}
-                required
+                // required
               />
             </div>
             <div className="form-group">
@@ -119,7 +120,7 @@ function Form({ handleOrderClick }) {
                 onChange={handleChange}
                 onSubmit={handleSubmit}
                 placeholder="Enter Email"
-                required
+                // required
               />
             </div>
           </div>
@@ -134,10 +135,10 @@ function Form({ handleOrderClick }) {
                 value={formData.phone}
                 onChange={handleChange}
                 onSubmit={handleSubmit}
-                placeholder="Ex.938868XXXX"
-                pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+                placeholder="Enter Ph.No with Country code"
+                // pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
                 inputmode="numeric"
-                required
+                // required
               />
             </div>
             <div className="form-group">
@@ -150,7 +151,7 @@ function Form({ handleOrderClick }) {
                 value={formData.address}
                 onSubmit={handleSubmit}
                 placeholder="Enter Address"
-                required
+                // required
               />
             </div>
           </div>
@@ -185,7 +186,7 @@ function Form({ handleOrderClick }) {
                 value={formData.date}
                 onChange={handleChange}
                 placeholder="Enter Date"
-                required
+                // required
               />
             </div>
             <div className="form-group">
@@ -197,13 +198,19 @@ function Form({ handleOrderClick }) {
                 onChange={handleChange}
                 className="cursor-pointer border-none "
                 name="file"
-                required
+                // required
               />
             </div>
 
             <div className="form-group">
               <small className="text-slate-400">
                 * Upload image in PDF format
+              </small>
+              <small className="text-slate-400">
+                * Choose date atleast 7 days break
+              </small>
+              <small className="text-slate-400">
+                * Enter number with country code
               </small>
             </div>
           </div>
