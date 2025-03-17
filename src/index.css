@@ -35,6 +35,7 @@ body{
     background-attachment: fixed;
     /* filter: blur(8px); */
     color: white;
+   
 }
 .poppins_font{
     font-family: "poppins", sans-serif;
@@ -112,6 +113,12 @@ body{
   /* overflow-y: auto; */
    /* height: 60vh; */
 }
+.form-container2 { 
+ @apply flex relative justify-center gap-6  
+}
+ .picture_container{
+  @apply  w-3/6 border p-2 rounded-lg h-96 border-slate-50/10 
+}
 
 
 /* Grid layout for 2-column form */
@@ -187,12 +194,26 @@ body{
    .person{
     width:70%;
   }
-    .form-container {
+  .form-container {
   overflow-y: auto;
    height: 60vh;
 }
 
 }
+
+@media (max-width: 767px) {
+   .form-container2 {
+  overflow-y: auto;
+   height: 60vh;
+
+  @apply flex-col items-center 
+}
+ .picture_container{
+  @apply  h-40 
+}
+}
+  
+
 @media (max-width: 898px) {
   .person{
     width:45%;

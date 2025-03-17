@@ -5,8 +5,9 @@ import Form from "./Art_elements/Form";
 import Price from "./Art_elements/Price";
 import Divider from "./Divider";
 import Ordered_animation from "./Art_elements/Ordered_animation";
+import { Link } from "react-scroll";
 
-export const Buydatas=createContext();
+// export const Buydatas=createContext();
 
 function Art_section() {
   // vertical
@@ -209,15 +210,22 @@ function Art_section() {
   // order
   const handleOrderClick = (order) => {
     set_click_order(order);
-    if (order){
+    if (order) {
       setIsScrollLocked(true);
-    }else{
+    } else {
       setIsScrollLocked(false);
     }
   };
 
   //image type sent to confirm page
-  const [Buydata, set_Buydata] = useState(null);
+  const [Buydata, set_Buydata] = useState({
+    id: 1,
+    title: "portrait",
+    img: "0",
+    price: 2499,
+    type: "portrait",
+    offer: 50,
+  });
   const handleBuyData = (data) => {
     set_Buydata(data);
   };
@@ -326,19 +334,65 @@ function Art_section() {
             click_order ? "block" : "hidden"
           } z-10  backdrop-blur-sm fixed inset-0 w-full h-full bg-black/55 `}
         >
-          <Buydatas.Provider value={Buydata}>
-            <Form
-              handleOrderClick={handleOrderClick}
-              handle_congrates={handle_congrates}
-            />
-          </Buydatas.Provider>
+          {/* <Buydatas.Provider value={Buydata}> */}
+          <Form
+            handleOrderClick={handleOrderClick}
+            handle_congrates={handle_congrates}
+            Buydata={Buydata}
+          />
+          {/* </Buydatas.Provider> */}
         </div>
 
-        {/* price */}
+        <span className="flex justify-center mt-5">
+          <Link
+            to="portrait"
+            smooth={true}
+            duration={500}
+            className="text-blue-500 cursor-pointer"
+          >
+            <img
+              src="./artshop/art-section/portrait.png"
+              className="h-10 "
+              alt=""
+            />
+          </Link>
+          <Link
+            to="landscape"
+            smooth={true}
+            duration={500}
+            className="text-blue-500 cursor-pointer"
+          >
+            <img
+              src="./artshop/art-section/landscape.png"
+              className="h-10 "
+              alt=""
+            />
+          </Link>
+          <Link
+            to="crayons"
+            smooth={true}
+            duration={500}
+            className="text-blue-500 cursor-pointer"
+          >
+            <img
+              src="./artshop/art-section/crayons.png"
+              className="h-10 "
+              alt=""
+            />
+          </Link>
+          <Link
+            to="photoshop"
+            smooth={true}
+            duration={500}
+            className="text-blue-500 cursor-pointer"
+          >
+            <img src="./artshop/art-section/ps.png" className="h-10 " alt="" />
+          </Link>
+        </span>
 
-        {/* button */}
+        {/*price button */}
         <div className="z-0">
-          <div className="flex gap-10 justify-end w-10/12 mx-auto mt-8 max-md:flex-col">
+          <div className=" absolute right-16 ">
             <button
               className="button_setup"
               onClick={() => {
@@ -352,9 +406,10 @@ function Art_section() {
           {/*  */}
 
           {/* portrait */}
-          <div className="mt-10">
+          <div id="portrait" className="mt-10">
             <Divider divider_name="PORTRAIT" />
           </div>
+
           <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-16 mx-auto mb-10 py-10 ">
             {portrait_img.map((data) => {
               return (
@@ -370,7 +425,7 @@ function Art_section() {
           </section>
 
           {/* landscape */}
-          <div>
+          <div id="landscape">
             <Divider divider_name="LANDSCAPE" />
           </div>
           <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
@@ -388,7 +443,7 @@ function Art_section() {
           </section>
 
           {/* Cryons */}
-          <div>
+          <div id="crayons">
             <Divider divider_name="CRAYONS" />
           </div>
           <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
@@ -406,7 +461,7 @@ function Art_section() {
           </section>
 
           {/* Photoshop */}
-          <div>
+          <div id="photoshop">
             <Divider divider_name="PHOTOSHOP" />
           </div>
           <section className="place-items-center grid w-11/12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mx-auto mb-10  py-10 ">
@@ -422,6 +477,57 @@ function Art_section() {
               );
             })}
           </section>
+
+          <span className="flex justify-center mb-5">
+            <Link
+              to="portrait"
+              smooth={true}
+              duration={500}
+              className="text-blue-500 cursor-pointer"
+            >
+              <img
+                src="./artshop/art-section/portrait.png"
+                className="h-10 "
+                alt=""
+              />
+            </Link>
+            <Link
+              to="landscape"
+              smooth={true}
+              duration={500}
+              className="text-blue-500 cursor-pointer"
+            >
+              <img
+                src="./artshop/art-section/landscape.png"
+                className="h-10 "
+                alt=""
+              />
+            </Link>
+            <Link
+              to="crayons"
+              smooth={true}
+              duration={500}
+              className="text-blue-500 cursor-pointer"
+            >
+              <img
+                src="./artshop/art-section/crayons.png"
+                className="h-10 "
+                alt=""
+              />
+            </Link>
+            <Link
+              to="photoshop"
+              smooth={true}
+              duration={500}
+              className="text-blue-500 cursor-pointer"
+            >
+              <img
+                src="./artshop/art-section/ps.png"
+                className="h-10 "
+                alt=""
+              />
+            </Link>
+          </span>
         </div>
       </section>
     </>

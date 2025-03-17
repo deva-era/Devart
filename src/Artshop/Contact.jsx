@@ -1,6 +1,6 @@
 import React from "react";
 import Footer_resuse from "./Footer_resuse";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Complaint_animation from "./contact/Complaint_animation";
 function Contact() {
   const [formData, setFormData] = useState({
@@ -11,7 +11,6 @@ function Contact() {
     comment: "",
   });
 
-
   // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,17 +19,18 @@ function Contact() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-     setFormData({
-       name: "",
-       email: "",
-       phone: "",
-       subject: "",
-       comment: "",
-     });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      comment: "",
+    });
+    handle_close(true);
   };
 
-// scroll
-  
+  // scroll
+
   const [isScrollLocked, setIsScrollLocked] = useState(false);
 
   useEffect(() => {
@@ -49,18 +49,18 @@ function Contact() {
     setIsScrollLocked(false);
   }
 
-    const [close, set_close] = useState(false);
-    const handle_close = (status) => {
-      set_close(status);
-    };
+  const [close, set_close] = useState(false);
+  const handle_close = (status) => {
+    set_close(status);
+  };
 
-    useEffect(() => {
-      if (close) {
-        setIsScrollLocked(true);
-      } else {
-        setIsScrollLocked(false);
-      }
-    }, [close]);
+  useEffect(() => {
+    if (close) {
+      setIsScrollLocked(true);
+    } else {
+      setIsScrollLocked(false);
+    }
+  }, [close]);
 
   return (
     <>
@@ -98,10 +98,11 @@ function Contact() {
                       type="text"
                       id="contact-form-name"
                       class=" rounded-lg flex-1 appearance-none  bg-transparent    text-white  shadow-sm text-base  focus:outline-none focus:ring-2 placeholder:text-white "
-                      placeholder="Name"
+                      placeholder="Name*"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -111,10 +112,11 @@ function Contact() {
                       type="text"
                       id="contact-form-email"
                       class=" rounded-lg flex-1 appearance-none  bg-transparent  text-white  placeholder:text-white shadow-sm text-base focus:outline-none focus:ring-2 "
-                      placeholder="Email"
+                      placeholder="Email*"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -137,10 +139,11 @@ function Contact() {
                       type="text"
                       id="contact-form-email"
                       class=" rounded-lg  appearance-none  bg-transparent    text-white  shadow-sm text-base focus:outline-none focus:ring-2 placeholder:text-white "
-                      placeholder="Subject"
+                      placeholder="Subject*"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                 </div>
@@ -153,24 +156,18 @@ function Contact() {
                     <textarea
                       className="py-4 rounded-lg flex-1 appearance-none  bg-transparent  w-full  px-4  text-white  shadow-sm text-base focus:outline-none focus:ring-2 border border-cyan-400 placeholder:text-white "
                       id="comment"
-                      placeholder="Enter your comment"
+                      placeholder="Enter your comment*"
                       rows="11"
                       cols="40"
                       name="comment"
                       value={formData.comment}
                       onChange={handleChange}
+                      required
                     ></textarea>
                   </label>
                 </div>
                 <div class="col-span-2 text-right flex justify-center">
-                  <button
-                    type="submit"
-                    class="py-2 px-4  button_setup
-                    "
-                    onClick={() => {
-                      handle_close(true);
-                    }}
-                  >
+                  <button type="submit" class="py-2 px-4  button_setup">
                     Send Message
                   </button>
                 </div>

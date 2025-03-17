@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import Confirmation_form from "./Confirmation_form";
 
-function Form({ handleOrderClick, handle_congrates }) {
+function Form({ handleOrderClick, handle_congrates ,Buydata}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,7 +72,7 @@ function Form({ handleOrderClick, handle_congrates }) {
     }
   }
   // count end
-
+console.log(Buydata);
   return (
     <div>
       <div
@@ -107,7 +107,7 @@ function Form({ handleOrderClick, handle_congrates }) {
                 onSubmit={handleSubmit}
                 placeholder="Enter name"
                 onChange={handleChange}
-                // required
+                required
               />
             </div>
             <div className="form-group">
@@ -120,7 +120,7 @@ function Form({ handleOrderClick, handle_congrates }) {
                 onChange={handleChange}
                 onSubmit={handleSubmit}
                 placeholder="Enter Email"
-                // required
+                required
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ function Form({ handleOrderClick, handle_congrates }) {
                 placeholder="Enter Ph.No with Country code"
                 // pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
                 inputmode="numeric"
-                // required
+                required
               />
             </div>
             <div className="form-group">
@@ -151,7 +151,7 @@ function Form({ handleOrderClick, handle_congrates }) {
                 value={formData.address}
                 onSubmit={handleSubmit}
                 placeholder="Enter Address"
-                // required
+                required
               />
             </div>
           </div>
@@ -186,7 +186,7 @@ function Form({ handleOrderClick, handle_congrates }) {
                 value={formData.date}
                 onChange={handleChange}
                 placeholder="Enter Date"
-                // required
+                required
               />
             </div>
             <div className="form-group">
@@ -216,7 +216,7 @@ function Form({ handleOrderClick, handle_congrates }) {
           </div>
 
           <button id="submitbutton" className="mt-2" type="submit">
-            Place Order
+            Continue
           </button>
         </form>
       </div>
@@ -235,6 +235,7 @@ function Form({ handleOrderClick, handle_congrates }) {
             handleOrderClick={handleOrderClick}
             user_data={formData}
             confimed_order={confirmed_order}
+            Buydata={Buydata}
           />
         </div>
       </div>

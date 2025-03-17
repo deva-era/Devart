@@ -1,24 +1,13 @@
 import React from "react";
-import { useContext,useState} from "react";
-import { Buydatas } from "../Art_section";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import { useContext, useState } from "react";
 
 function Confirmation_form({
   return_check,
   confimed_order,
   handleOrderClick,
   user_data,
+  Buydata,
 }) {
-  let Buyingdata = useContext(Buydatas);
-  const [recieved_data, set_recieved_data] =useState(null);
-   console.log(Buyingdata);
-    console.log("hiu");
-  function recieving_data() {
-    // Buyingdata.temp="he";
-    // console.log(Buyingdata.price);
-  }
-
-  //reverse date
   let desired_format_date = user_data.date.split("-").reverse().join("-");
 
   return (
@@ -44,37 +33,34 @@ function Confirmation_form({
         Place Order
       </div>
 
-      <section id="form1" className="form-container ">
-        <div className="flex relative justify-center gap-6">
-          <div className="w-3/6 border p-2 rounded-lg h-96 border-slate-50/10 flex flex-col flex-wrap">
+      <section id="" className="flex flex-col ">
+        <div className="form-container2">
+          <div className=" picture_container ">
             <img
-              src={`./artshop/card images/portrait/0.jpg `}
+              src={`./artshop/card images/${Buydata.type}/${Buydata.img}.jpg `}
               alt={`hi`}
-              className=" object-contain w-full h-full"
+              className=" object-contain w-full h-full "
             />
-            <div className="relative bottom-2 ">1</div>
+
+            {/* <div className="relative bottom-2 ">1</div> */}
           </div>
 
-          <div>
-            {/* user details*/}
+          <div className="overflow-y-auto">
+            Delivery:
             <div className="flex flex-col justify-center w-64 pb-1 ">
               <div className="ml-3 flex flex-col ">
-                <span className=" font-extrabold font-serif text-indigo-200">
-                  Expecting: {desired_format_date}
-                </span>
-                <div className="grid grid-cols-2">
-                  <div className=" flex flex-col ">
-                    <span>Email:</span>
-                    <span>Phone:</span>
-                  </div>
-                  <div className="flex flex-col ">
-                    <p className="text-thin ">{user_data.email}</p>
-                    <span>+{user_data.phone}</span>
-                  </div>
+                <div className=" flex flex-col ">
+                  <span className="font-bold text-indigo-200 ">
+                    <span className=" font-extrabold font-serif text-indigo-200 ">
+                      Arriving
+                    </span>{" "}
+                    {desired_format_date}.
+                  </span>
+                  <span>{user_data.email}</span>
+                  <span>+{user_data.phone}</span>
                 </div>
               </div>
             </div>
-
             {/* Address */}
             <div className="flex flex-col border-b-4 w-64 pb-1 border-t-4 ">
               Address:
@@ -87,7 +73,7 @@ function Confirmation_form({
               </div>
             </div>
             {/* Delivery */}
-            <div className="flex flex-col border-b-4 w-64 ">
+            <div className="flex flex-col border-b-4  max-md:border-b-0 w-64 ">
               Order details
               <div className="grid grid-cols-2">
                 <div className="ml-3 flex flex-col ">
@@ -99,10 +85,12 @@ function Confirmation_form({
                   </span>
                 </div>
                 <div className="ml-3 flex flex-col ">
-                  <span>:</span>
-                  <span className=" "> -₹100.00</span>
+                  <span>{Buydata.price}.00</span>
+                  <span className="text-green-400"> -₹100.00</span>
                   <span> ₹250.00</span>
-                  <span className=" font-extrabold font-cinzel">₹Order.00</span>
+                  <span className=" font-extrabold font-cinzel">
+                    ₹{Buydata.price + 150}.00
+                  </span>
                 </div>
               </div>
             </div>
@@ -117,7 +105,7 @@ function Confirmation_form({
             handleOrderClick(false), confimed_order();
           }}
         >
-          Confirm Order
+          Place Order
         </button>
       </section>
     </div>
