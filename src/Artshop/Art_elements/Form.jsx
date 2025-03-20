@@ -186,7 +186,7 @@ console.log(Buydata);
                 value={formData.date}
                 onChange={handleChange}
                 placeholder="Enter Date"
-                required
+                // required
               />
             </div>
             <div className="form-group">

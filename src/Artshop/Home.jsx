@@ -5,7 +5,9 @@ function Home() {
   return (
     <>
     <Intro_info/>
+  
     <Intro_footer/>
+  
     </>
   )
 }

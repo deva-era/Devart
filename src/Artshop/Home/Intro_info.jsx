@@ -46,7 +46,7 @@ function Intro_info({ data }) {
         <div className="">
           <img
             className="images border"
-            src="./artshop/elements/Pencil1.png"
+            src="./artshop/elements/Pencil.webp"
             alt=""
           />
         </div>
@@ -77,8 +77,8 @@ function Intro_info({ data }) {
         <div className="order-0 max-sm:order-1 max-sm:mt-9">
           <img
             className="images border"
-            src="./artshop/elements/homecrayons.png"
-            alt="homecrayons.png"
+            src="./artshop/elements/homecrayons.webp"
+            alt="homecrayons.webp"
           />
         </div>
       </div>
@@ -112,7 +112,7 @@ function Intro_info({ data }) {
         <span className="">
           <img
             className="images border"
-            src="./artshop/elements/photoshop.jpg"
+            src="./artshop/elements/photoshop.webp"
             alt=""
           />
         </span>

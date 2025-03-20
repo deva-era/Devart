@@ -1,11 +1,19 @@
 import Confetti from "react-confetti";
-import { useState } from "react";
+import { useState ,useRef,useEffect} from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 export default function Ordered_animation({ handle_congrates}) {
+
+   const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
+
+   useEffect(()=>{
+     audioRef.current.currentTime = 0; // Reset to start
+     audioRef.current.play();},[]);
+
   return (
     <>
+
       <Confetti numberOfPieces={50}    gravity={0.5} // Increase gravity for faster fall
       wind={0.01} // Adjust wind for direction
       tweenDuration={2000} />

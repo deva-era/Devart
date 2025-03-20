@@ -119,14 +119,14 @@ function Art_section() {
   ]);
 
   const [ps_img, set_ps_img] = useState([
-    {
-      id: 1,
-      title: "ps",
-      img: "Avatar",
-      price: 549,
-      type: "ps",
-      offer: 2,
-    },
+    // {
+    //   id: 1,
+    //   title: "ps",
+    //   img: "Avatar",
+    //   price: 549,
+    //   type: "ps",
+    //   offer: 2,
+    // },
     {
       id: 2,
       title: "ps",
@@ -135,14 +135,14 @@ function Art_section() {
       type: "ps",
       offer: 10,
     },
-    {
-      id: 3,
-      title: "ps",
-      img: "god of war",
-      price: 549,
-      type: "ps",
-      offer: 7,
-    },
+    // {
+    //   id: 3,
+    //   title: "ps",
+    //   img: "god of war",
+    //   price: 549,
+    //   type: "ps",
+    //   offer: 7,
+    // },
     {
       id: 4,
       title: "ps",
@@ -159,14 +159,14 @@ function Art_section() {
       type: "ps",
       offer: 50,
     },
-    {
-      id: 6,
-      title: "ps",
-      img: "Ravathana",
-      price: 549,
-      type: "ps",
-      offer: 9,
-    },
+    // {
+    //   id: 6,
+    //   title: "ps",
+    //   img: "Ravathana",
+    //   price: 549,
+    //   type: "ps",
+    //   offer: 9,
+    // },
   ]);
 
   // scrolling
@@ -270,6 +270,8 @@ function Art_section() {
   return (
     <>
       <section className="relative w-full h-full   ">
+      
+
         {/* animation congrates */}
         <div
           onWheel={handleWheel}
@@ -348,7 +350,7 @@ function Art_section() {
             to="portrait"
             smooth={true}
             duration={500}
-            className="text-blue-500 cursor-pointer"
+           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img
               src="./artshop/art-section/portrait.png"
@@ -360,7 +362,7 @@ function Art_section() {
             to="landscape"
             smooth={true}
             duration={500}
-            className="text-blue-500 cursor-pointer"
+           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img
               src="./artshop/art-section/landscape.png"
@@ -372,7 +374,7 @@ function Art_section() {
             to="crayons"
             smooth={true}
             duration={500}
-            className="text-blue-500 cursor-pointer"
+           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img
               src="./artshop/art-section/crayons.png"
@@ -384,7 +386,7 @@ function Art_section() {
             to="photoshop"
             smooth={true}
             duration={500}
-            className="text-blue-500 cursor-pointer"
+           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img src="./artshop/art-section/ps.png" className="h-10 " alt="" />
           </Link>
@@ -392,9 +394,9 @@ function Art_section() {
 
         {/*price button */}
         <div className="z-0">
-          <div className=" absolute right-16 ">
+          <div className=" md:absolute md:right-16 flex justify-end max-sm:mt-1">
             <button
-              className="button_setup"
+              className="button_setup "
               onClick={() => {
                 handlePriceClick(true);
                 setIsScrollLocked(true);
@@ -406,7 +408,7 @@ function Art_section() {
           {/*  */}
 
           {/* portrait */}
-          <div id="portrait" className="mt-10">
+          <div id="portrait" className="mt-10 max-md:mt-5">
             <Divider divider_name="PORTRAIT" />
           </div>
 
@@ -483,7 +485,7 @@ function Art_section() {
               to="portrait"
               smooth={true}
               duration={500}
-              className="text-blue-500 cursor-pointer"
+             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/portrait.png"
@@ -495,7 +497,7 @@ function Art_section() {
               to="landscape"
               smooth={true}
               duration={500}
-              className="text-blue-500 cursor-pointer"
+             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/landscape.png"
@@ -507,7 +509,7 @@ function Art_section() {
               to="crayons"
               smooth={true}
               duration={500}
-              className="text-blue-500 cursor-pointer"
+             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/crayons.png"
@@ -519,7 +521,7 @@ function Art_section() {
               to="photoshop"
               smooth={true}
               duration={500}
-              className="text-blue-500 cursor-pointer"
+             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/ps.png"

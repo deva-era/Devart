@@ -196,6 +196,13 @@ function About() {
   return (
     <>
       <section className="">
+        <div className="w-screen h-screen  -z-30 inset-0 fixed  ">
+          <img
+            className="h-full w-full object-cover"
+            src="./artshop/Background/mine.jpg"
+            alt=""
+          />
+        </div>
         <About_intro />
 
         <section className="mb-10 mt-24 ">

@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef,useEffect } from "react";
 
 function Confirmation_form({
   return_check,
@@ -9,6 +9,14 @@ function Confirmation_form({
   Buydata,
 }) {
   let desired_format_date = user_data.date.split("-").reverse().join("-");
+
+
+  //  const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
+
+  //  function playsound() {
+  //    audioRef.current.currentTime = 0; // Reset to start
+  //    audioRef.current.play();
+  //  };
 
   return (
     <div className="confirmation_form ">
@@ -52,7 +60,7 @@ function Confirmation_form({
                 <div className=" flex flex-col ">
                   <span className="font-bold text-indigo-200 ">
                     <span className=" font-extrabold font-serif text-indigo-200 ">
-                      Arriving
+                      Expecting
                     </span>{" "}
                     {desired_format_date}.
                   </span>
@@ -103,6 +111,7 @@ function Confirmation_form({
           type="submit"
           onClick={() => {
             handleOrderClick(false), confimed_order();
+          
           }}
         >
           Place Order
