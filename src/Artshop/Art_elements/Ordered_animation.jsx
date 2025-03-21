@@ -5,11 +5,12 @@ import { CheckCircle } from "lucide-react";
 
 export default function Ordered_animation({ handle_congrates}) {
 
-   const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
+  //  const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
 
-   useEffect(()=>{
-     audioRef.current.currentTime = 0; // Reset to start
-     audioRef.current.play();},[]);
+  //  useEffect(()=>{
+  //    audioRef.current.currentTime = 0; // Reset to start
+  //    audioRef.current.play();
+  //   },[]);
 
   return (
     <>

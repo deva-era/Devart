@@ -11,12 +11,12 @@ function Confirmation_form({
   let desired_format_date = user_data.date.split("-").reverse().join("-");
 
 
-  //  const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
+   const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
 
-  //  function playsound() {
-  //    audioRef.current.currentTime = 0; // Reset to start
-  //    audioRef.current.play();
-  //  };
+   function playsound() {
+     audioRef.current.currentTime = 0; // Reset to start
+     audioRef.current.play();
+   };
 
   return (
     <div className="confirmation_form ">
@@ -37,7 +37,7 @@ function Confirmation_form({
       </button>
 
       {/* heading */}
-      <div className="text-3xl text-black  font-cinzel p-10 text-center ">
+      <div className="text-3xl text-yellow-200   font-cinzel p-10 text-center ">
         Place Order
       </div>
 
@@ -110,8 +110,7 @@ function Confirmation_form({
           className="mt-2"
           type="submit"
           onClick={() => {
-            handleOrderClick(false), confimed_order();
-          
+            handleOrderClick(false), confimed_order(), playsound();
           }}
         >
           Place Order

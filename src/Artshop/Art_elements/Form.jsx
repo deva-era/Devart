@@ -89,7 +89,7 @@ console.log(Buydata);
         </button>
 
         {/* heading */}
-        <div className="text-3xl text-black  font-cinzel p-10 text-center ">
+        <div className="text-3xl text-yellow-200   font-cinzel p-10 text-center ">
           Place Order
         </div>
 
