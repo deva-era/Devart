@@ -1,6 +1,9 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Experience from "./Experience";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 
 function Intro_info({ data }) {
   const [pencil_data, set_pencil_data] = useState([
@@ -18,16 +21,34 @@ function Intro_info({ data }) {
     { id: 2, no: 3, name: "Years" },
   ]);
 
+  // const observer= new IntersectionObserver((entries)=>{
+  //   entries.forEach((entry)=>{
+  //     console.log(entry);
+  //     if(entry.isIntersecting){
+  //       entry.target.classList.add('show');
+  //     }else{
+  //       entry.target.classList.remove('show')
+  //     }
+  //   })
+  // });
+
+  // const hiddenElements = document.querySelectorAll('.hiddens');
+  // hiddenElements.forEach((el) => observer.observe(el));
+// smooth
+
+
   return (
     <section id="intro_info" className="flex flex-col gap-40 max-sm:gap-10">
       {/* pencil */}
       <div className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-4 max-md:h-auto  max-xl:home_section_height ">
         <div className="max-md:flex max-md:flex-col">
           <div className="">
-            <span className="font-cinzel font-bold text-5xl ">Pencil</span>
+            <span className="font-cinzel font-bold text-5xl animated-text">
+              Pencil
+            </span>
             <span>&nbsp;-"Where Graphite Tells a Story"</span>
           </div>
-          <p className="w-3/4 mt-1 ">
+          <p className="w-3/4 mt-1 animated-text">
             &nbsp;Every stroke, every shade, and every fine detail—pencil art
             captures emotions in a way that no other medium can. Here, we
             celebrate the raw beauty of realism, bringing life to paper with
@@ -56,10 +77,12 @@ function Intro_info({ data }) {
       <div className="flex justify-around w-11/12 mx-auto max-md:flex-col gap-10 max-md:h-auto  max-xl:home_section_height">
         <div className="order-2 w-5/5  max-sm:order-1">
           <div className="">
-            <span className="font-cinzel font-bold text-5xl ">Crayons</span>
+            <span className="font-cinzel font-bold text-5xl animated-text">
+              Crayons
+            </span>
             <span>&nbsp;-"A World of Color in Every Stroke"</span>
           </div>
-          <p className="mt-1 w-full">
+          <p className="mt-1 w-full animated-text">
             &nbsp;Crayons aren't just for childhood—they’re a tool for boundless
             creativity! Here, vibrant colors blend, layer, and come to life,
             transforming simple wax into breathtaking works of art. From bold,
@@ -90,11 +113,13 @@ function Intro_info({ data }) {
       >
         <div className="">
           <div className="">
-            <span className="font-cinzel font-bold text-5xl ">Photo</span>
-            <span className=" text-5xl text-cyan-500 ">Shop</span>
+            <span className="font-cinzel font-bold text-5xl animated-text ">
+              Photo
+            </span>
+            <span className=" text-5xl text-cyan-500 animated-text">Shop</span>
             <span>&nbsp;-"Where Imagination Meets Reality"</span>
           </div>
-          <p className="w-3/4 mt-1 ">
+          <p className="w-3/4 mt-1 animated-text">
             &nbsp;In the world of Photoshop, reality is just the beginning.
             Here, creative manipulation transforms ordinary images into
             extraordinary visions—seamlessly blending fantasy with realism. From

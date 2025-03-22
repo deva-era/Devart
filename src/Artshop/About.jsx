@@ -140,16 +140,17 @@ function About() {
     {
       id: 1,
       title: "ps",
-      year: 2025,
+      year: 2021,
       img: "Avatar",
       price: 549,
       type: "ps",
       offer: 2,
+      sub: true,
     },
     {
       id: 2,
       title: "ps",
-      year: 2025,
+      year: 2022,
       img: "valhalla",
       price: 599,
       type: "ps",
@@ -158,16 +159,17 @@ function About() {
     {
       id: 3,
       title: "ps",
-      year: 2025,
+      year: 2022,
       img: "god of war",
       price: 549,
       type: "ps",
       offer: 7,
+      sub: true,
     },
     {
       id: 4,
       title: "ps",
-      year: 2025,
+      year: 2022,
       img: "H1Z1 blue",
       price: 599,
       type: "ps",
@@ -176,7 +178,7 @@ function About() {
     {
       id: 5,
       title: "ps",
-      year: 2025,
+      year: 2023,
       img: "angel dev",
       price: 549,
       type: "ps",
@@ -185,24 +187,25 @@ function About() {
     {
       id: 6,
       title: "ps",
-      year: 2025,
+      year: 202,
       img: "Ravathana",
       price: 549,
       type: "ps",
       offer: 9,
+      sub: true,
     },
   ]);
 
   return (
     <>
       <section className="">
-        <div className="w-screen h-screen  -z-30 inset-0 fixed  ">
+        {/* <div className="w-screen h-screen  -z-30 inset-0 fixed  ">
           <img
             className="h-full w-full object-cover"
             src="./artshop/Background/mine.jpg"
             alt=""
           />
-        </div>
+        </div> */}
         <About_intro />
 
         <section className="mb-10 mt-24 ">
