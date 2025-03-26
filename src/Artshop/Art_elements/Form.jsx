@@ -1,17 +1,36 @@
-import React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Confirmation_form from "./Confirmation_form";
 
-function Form({ handleOrderClick, handle_congrates ,Buydata}) {
-  const [formData, setFormData] = useState({
+function Form({ handleOrderClick, handle_congrates, Buydata }) {
+
+  const [formData, setFormData] = useState(() => ({
     name: "",
     email: "",
     phone: "",
     address: "",
     date: "",
     file: "",
-    persons: 1,
-  });
+    person: 0,
+  }));
+
+    // useEffect(() => {
+    //   if (formData.person !== Buydata.person) {
+    //     setFormData((prevUser) => ({ ...prevUser, person: Buydata.person })); // ✅ Update age on mount
+    //   }
+    // }, [formData]);
+
+  // useEffect(()=>{
+  // //  setFormData({ ...formData, person: Buydata.person });
+  //   // setFormData((prevData) => ({
+  //   //   ...prevData,
+  //   //   person: prevData.person + 1,
+  //   // }));
+
+  // },[]);
+
+  // console.log("Expect: " + Buydata.person);
+  console.log("form :" + formData.person);
+  // console.log("p :" + p);
 
   // display condition for forms
   const [click_confirm_order, set_click_confirm_order] = useState(false);
@@ -20,6 +39,19 @@ function Form({ handleOrderClick, handle_congrates ,Buydata}) {
   function return_check() {
     set_click_confirm_order(false);
   }
+
+  // close click
+   function close_click() {
+     setFormData({
+       name: "",
+       email: "",
+       phone: "",
+       address: "",
+       date: "",
+       file: "",
+       person: 0,
+     });
+   };
 
   // confirmed order
   function confirmed_order() {
@@ -30,7 +62,7 @@ function Form({ handleOrderClick, handle_congrates ,Buydata}) {
       address: "",
       date: "",
       file: "",
-      persons: 1,
+      person: 0,
     });
     set_click_confirm_order(false);
     handle_congrates(true);
@@ -50,29 +82,32 @@ function Form({ handleOrderClick, handle_congrates ,Buydata}) {
   };
 
   // person count
-  const [person, set_person] = useState(1);
+  // const [person, set_person] = useState(p);
+  // const temp = formData.person + Buydata.person;
 
-  function plus() {
-    if (formData.persons < 10) {
+  const plus = (e) => {
+    e.preventDefault();
+    if (formData.person+Buydata.person < 9) {
       // set_person((data) => data + 1);
       setFormData((prevData) => ({
         ...prevData,
-        persons: prevData.persons + 1,
+        person: prevData.person + 1,
       }));
     }
-  }
+  };
 
-  function minus() {
-    if (formData.persons >= 2) {
+  const minus = (e) => {
+    e.preventDefault();
+    if (formData.person + Buydata.person > Buydata.person) {
       // set_person((data) => data - 1);
       setFormData((prevData) => ({
         ...prevData,
-        persons: prevData.persons - 1,
+        person: prevData.person - 1,
       }));
     }
-  }
+  };
   // count end
-console.log(Buydata);
+  // console.log(Buydata);
   return (
     <div>
       <div
@@ -83,7 +118,9 @@ console.log(Buydata);
         {/* close */}
         <button
           class=" text-sm absolute right-8 top-2 cursor-pointer px-5 border rounded-lg bg-red-800  "
-          onClick={() => handleOrderClick()}
+          onClick={() => {
+            handleOrderClick(), close_click();
+          }}
         >
           Close
         </button>
@@ -135,7 +172,7 @@ console.log(Buydata);
                 value={formData.phone}
                 onChange={handleChange}
                 onSubmit={handleSubmit}
-                placeholder="Enter Ph.No with Country code"
+                placeholder="Eg.91 6379XXXXXX"
                 // pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
                 inputmode="numeric"
                 required
@@ -158,22 +195,22 @@ console.log(Buydata);
 
           <div className="form-row">
             <div className="">
-              <label htmlFor="#">No.of person:&nbsp;</label>
+              <label htmlFor="#">No.of Characters:&nbsp;</label>
               <div className="mt-1">
-                <button className="countperson mr-2" onClick={plus}>
-                  +
+                <button className="mr-2 countperson" onClick={minus}>
+                  -
                 </button>
                 <span
                   className=" person text-center bg-white"
-                  id="persons"
-                  name="persons"
-                  value={formData.persons}
+                  id="person"
+                  name="person"
+                  value={formData.person}
                   onSubmit={handleSubmit}
                 >
-                  {formData.persons}
+                  {formData.person + Buydata.person}
                 </span>
-                <button className=" ml-2 countperson" onClick={minus}>
-                  -
+                <button className="countperson   ml-2" onClick={plus}>
+                  +
                 </button>
               </div>
             </div>
@@ -186,7 +223,7 @@ console.log(Buydata);
                 value={formData.date}
                 onChange={handleChange}
                 placeholder="Enter Date"
-                // required
+                required
               />
             </div>
             <div className="form-group">
@@ -204,13 +241,13 @@ console.log(Buydata);
 
             <div className="form-group">
               <small className="text-slate-400">
-                * Upload image in PDF format
+                * Upload an image in PDF format.
               </small>
               <small className="text-slate-400">
-                * Choose date atleast 7 days break
+                * Select a date with at least a 7-day gap.
               </small>
               <small className="text-slate-400">
-                * Enter number with country code
+                * Enter your phone number with the country code.
               </small>
             </div>
           </div>

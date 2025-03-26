@@ -14,7 +14,8 @@ function Art_section() {
   const [portrait_img, set_portrait_img] = useState([
     {
       id: 1,
-      title: "portrait",
+      title: "dark",
+      person: 3,
       img: "0",
       price: 2499,
       type: "portrait",
@@ -22,7 +23,8 @@ function Art_section() {
     },
     {
       id: 2,
-      title: "portrait",
+      title: "harshini",
+      person: 1,
       img: "1",
       price: 1499,
       type: "portrait",
@@ -30,7 +32,8 @@ function Art_section() {
     },
     {
       id: 3,
-      title: "portrait",
+      title: "Dubai akka",
+      person: 2,
       img: "2",
       price: 1999,
       type: "portrait",
@@ -42,7 +45,8 @@ function Art_section() {
   const [landscape_img, set_landscape_img] = useState([
     {
       id: 1,
-      title: "landscape",
+      title: "Dubai order",
+      person: 4,
       img: "0",
       price: 2999,
       type: "landscape",
@@ -50,7 +54,8 @@ function Art_section() {
     },
     {
       id: 2,
-      title: "landscape",
+      title: "Dubai akka childs",
+      person: 2,
       img: "1",
       price: 1999,
       type: "landscape",
@@ -58,7 +63,8 @@ function Art_section() {
     },
     {
       id: 3,
-      title: "landscape",
+      title: "Dad love",
+      person: 3,
       img: "2",
       price: 2499,
       type: "landscape",
@@ -71,6 +77,7 @@ function Art_section() {
     {
       id: 1,
       title: "crayons",
+      person: 1,
       img: "sun and moon island",
       price: 549,
       type: "crayons",
@@ -79,6 +86,7 @@ function Art_section() {
     {
       id: 2,
       title: "crayons",
+      person: 1,
       img: "couple with umberlla",
       price: 599,
       type: "crayons",
@@ -87,6 +95,7 @@ function Art_section() {
     {
       id: 3,
       title: "crayons",
+      person: 1,
       img: "flying island",
       price: 549,
       type: "crayons",
@@ -95,6 +104,7 @@ function Art_section() {
     {
       id: 4,
       title: "crayons",
+      person: 1,
       img: "seasons",
       price: 549,
       type: "crayons",
@@ -103,6 +113,7 @@ function Art_section() {
     {
       id: 5,
       title: "crayons",
+      person: 1,
       img: "sitting on sky night",
       price: 549,
       type: "crayons",
@@ -111,6 +122,7 @@ function Art_section() {
     {
       id: 6,
       title: "crayons",
+      person: 1,
       img: "deer couple",
       price: 549,
       type: "crayons",
@@ -121,7 +133,7 @@ function Art_section() {
   const [ps_img, set_ps_img] = useState([
     // {
     //   id: 1,
-    //   title: "ps",
+    //   title: "ps",person:1,
     //   img: "Avatar",
     //   price: 549,
     //   type: "ps",
@@ -130,6 +142,7 @@ function Art_section() {
     {
       id: 2,
       title: "ps",
+      person: 1,
       img: "valhalla",
       price: 599,
       type: "ps",
@@ -137,7 +150,7 @@ function Art_section() {
     },
     // {
     //   id: 3,
-    //   title: "ps",
+    //   title: "ps",person:1,
     //   img: "god of war",
     //   price: 549,
     //   type: "ps",
@@ -146,6 +159,7 @@ function Art_section() {
     {
       id: 4,
       title: "ps",
+      person: 1,
       img: "H1Z1 blue",
       price: 599,
       type: "ps",
@@ -154,6 +168,7 @@ function Art_section() {
     {
       id: 5,
       title: "ps",
+      person: 1,
       img: "angel dev",
       price: 549,
       type: "ps",
@@ -161,7 +176,7 @@ function Art_section() {
     },
     // {
     //   id: 6,
-    //   title: "ps",
+    //   title: "ps",person:1,
     //   img: "Ravathana",
     //   price: 549,
     //   type: "ps",
@@ -221,6 +236,7 @@ function Art_section() {
   const [Buydata, set_Buydata] = useState({
     id: 1,
     title: "portrait",
+    person: 1,
     img: "0",
     price: 2499,
     type: "portrait",
@@ -270,8 +286,6 @@ function Art_section() {
   return (
     <>
       <section className="relative w-full h-full   ">
-      
-
         {/* animation congrates */}
         <div
           onWheel={handleWheel}
@@ -350,7 +364,7 @@ function Art_section() {
             to="portrait"
             smooth={true}
             duration={500}
-           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+            className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img
               src="./artshop/art-section/portrait.png"
@@ -362,7 +376,7 @@ function Art_section() {
             to="landscape"
             smooth={true}
             duration={500}
-           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+            className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img
               src="./artshop/art-section/landscape.png"
@@ -374,7 +388,7 @@ function Art_section() {
             to="crayons"
             smooth={true}
             duration={500}
-           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+            className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img
               src="./artshop/art-section/crayons.png"
@@ -386,7 +400,7 @@ function Art_section() {
             to="photoshop"
             smooth={true}
             duration={500}
-           className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+            className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
           >
             <img src="./artshop/art-section/ps.png" className="h-10 " alt="" />
           </Link>
@@ -485,7 +499,7 @@ function Art_section() {
               to="portrait"
               smooth={true}
               duration={500}
-             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+              className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/portrait.png"
@@ -497,7 +511,7 @@ function Art_section() {
               to="landscape"
               smooth={true}
               duration={500}
-             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+              className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/landscape.png"
@@ -509,7 +523,7 @@ function Art_section() {
               to="crayons"
               smooth={true}
               duration={500}
-             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+              className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/crayons.png"
@@ -521,7 +535,7 @@ function Art_section() {
               to="photoshop"
               smooth={true}
               duration={500}
-             className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
+              className="hover:scale-105 duration-150 text-blue-500 cursor-pointer"
             >
               <img
                 src="./artshop/art-section/ps.png"

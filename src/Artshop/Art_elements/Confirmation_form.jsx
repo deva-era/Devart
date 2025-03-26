@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState, useRef,useEffect } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 
 function Confirmation_form({
   return_check,
@@ -10,19 +10,11 @@ function Confirmation_form({
 }) {
   let desired_format_date = user_data.date.split("-").reverse().join("-");
 
-
-   const audioRef = useRef(new Audio("/2.mp3")); // Replace with your audio file path
-
-   function playsound() {
-     audioRef.current.currentTime = 0; // Reset to start
-     audioRef.current.play();
-   };
-
   return (
     <div className="confirmation_form ">
       {/* close */}
       <button
-        class=" text-sm absolute right-8 top-2 cursor-pointer px-5 border rounded-lg bg-red-800  "
+        class=" text-sm absolute right-8 top-2 cursor-pointer px-5 border rounded-lg bg-red-800 "
         onClick={() => {
           handleOrderClick(false), return_check();
         }}
@@ -62,7 +54,7 @@ function Confirmation_form({
                     <span className=" font-extrabold font-serif text-indigo-200 ">
                       Expecting
                     </span>{" "}
-                    {desired_format_date}.
+                    {desired_format_date}
                   </span>
                   <span>{user_data.email}</span>
                   <span>+{user_data.phone}</span>
@@ -86,22 +78,52 @@ function Confirmation_form({
               <div className="grid grid-cols-2">
                 <div className="ml-3 flex flex-col ">
                   <span>Items:</span>
+                  <span
+                    className={`${
+                      user_data.person !== 0 ? "block" : " hidden "
+                    }`}
+                  >
+                    Extra Characters
+                  </span>
                   <span>Discount:</span>
-                  <span>Delivery:</span>
+                  <span className="">Delivery:</span>
                   <span className=" font-extrabold font-cinzel">
                     Order Total:
                   </span>
                 </div>
                 <div className="ml-3 flex flex-col ">
                   <span>{Buydata.price}.00</span>
+                  <span
+                    className={`${
+                      user_data.person !== 0 ? "block" : " hidden "
+                    } text-yellow-200`}
+                  >
+                    {user_data.person} x ₹500
+                  </span>
                   <span className="text-green-400"> -₹100.00</span>
                   <span> ₹250.00</span>
                   <span className=" font-extrabold font-cinzel">
-                    ₹{Buydata.price + 150}.00
+                    ₹{Buydata.price + 150 + user_data.person * 500}.00
                   </span>
                 </div>
               </div>
             </div>
+            {/* <div className="border  mt-1 rounded-lg p-1 w-fit flex w-8/12 text-sm ">
+              <small>
+                Our team will contact you to confirm the order and provide the
+                available delivery date
+              </small>
+            </div> */}
+            {/* <button
+              id="submitbutton"
+              className="mt-2 w-full "
+              type="submit"
+              onClick={() => {
+                handleOrderClick(false), confimed_order();
+              }}
+            >
+              Place Order
+            </button> */}
           </div>
         </div>
 
@@ -110,7 +132,7 @@ function Confirmation_form({
           className="mt-2"
           type="submit"
           onClick={() => {
-            handleOrderClick(false), confimed_order(), playsound();
+            handleOrderClick(false), confimed_order();
           }}
         >
           Place Order

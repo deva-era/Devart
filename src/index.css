@@ -235,9 +235,11 @@ body{
   .form-container {
   overflow-y: auto;
    height: 60vh;
+  }
+ 
 }
 
-}
+
 
 @media (max-width: 767px) {
    .form-container2 {
@@ -246,9 +248,16 @@ body{
 
   @apply flex-col items-center 
 }
+
  .picture_container{
   @apply  h-40 
 }
+ /* .submit-but{
+    display: block;
+  } 
+ .submit-but2{
+    display: hidden;
+  }  */
 }
   
 
